@@ -100,24 +100,32 @@ export default function Home() {
           <div className="relative z-10 w-full max-w-screen-2xl mx-auto">
             {/* Navigation */}
             <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
-              <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="flex items-start space-x-2 lg:space-x-3">
                 <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                   <img
                     src="/assets/grid.svg"
                     alt="Menu"
                     width={20}
                     height={20}
-                    className="opacity-60"
+                    className="mt-4"
                   />
                 </button>
-                <span className="text-sm font-normal tracking-widest text-gray-800 hidden lg:block opacity-60">DECORIS</span>
-                <img
-                  src="/assets/grid.svg"
-                  alt="Grid"
-                  width={20}
-                  height={20}
-                  className="opacity-60 lg:opacity-100 hidden lg:block"
-                />
+                <div className="hidden lg:flex flex-col items-start space-y-2">
+                  <img
+                    src="/assets/Decoris P.svg"
+                    alt="Decoris Logo"
+                    width={100}
+                    height={20}
+                    className="opacity-60"
+                  />
+                  <img
+                    src="/assets/grid.svg"
+                    alt="Grid"
+                    width={20}
+                    height={20}
+                    className="opacity-100"
+                  />
+                </div>
               </div>
               <div className="hidden lg:flex items-center space-x-6 lg:space-x-10 text-xs font-medium tracking-widest uppercase">
                 <a href="#" className="text-gray-600 hover:underline">INTERIOR</a>
@@ -171,10 +179,10 @@ export default function Home() {
 
             {/* Left Side Icons */}
             <div className="absolute top-36 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-16">
-              <h3 className="text-gray-600 text-xs font-light mb-143 ml-22 tracking-wider mt-50">Black Gold Glass Sculpture</h3>
+              <h3 className="text-gray-600 text-xs font-light mb-155 ml-1 tracking-wider mt-50">Black Gold Glass Sculpture</h3>
               <div className="space-y-4">
-                <div className="w-8 h-8 flex items-center justify-center cursor-pointer ">
-                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mb-260 opacity-60 hover:opacity-100 transition-opacity" />
+               <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
+                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-20 mb-290 opacity-60 hover:opacity-100 transition-opacity" />
                 </div>
 
 
@@ -186,16 +194,16 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row min-h-fit pt-8">
               {/* Product Image */}
               <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
-                <div className="relative w-full max-w-full sm:max-w-[500px]">
-                  <div className=" shadow-lg ">
-                    <img
-                      src="/assets/1.jpg"
-                      alt="Black Gold Glass Sculpture"
-                      className="w-full h-auto "
-                      onClick={() => setSelectedImage('/assets/1.jpg')}
-                    />
-                  </div>
-
+  <div className="relative w-full h-full">
+    <div className="shadow-lg">
+      <img
+        src="/assets/1.jpg"
+        alt="Black Gold Glass Sculpture"
+        className="w-full h-full object-contain"
+        onClick={() => setSelectedImage('/assets/1.jpg')}
+      />
+    </div>
+ 
                   <div className="flex space-x-2 mt-6 justify-center">
                     {Array.from({ length: 8 }, (_, i) => (
                       <div
@@ -279,7 +287,7 @@ export default function Home() {
         {/* Content container with relative positioning */}
         <div className="relative z-10 min-h-screen">
           <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
-            <div className="flex items-center space-x-2 lg:space-x-3">
+            <div className="flex items-start space-x-2 lg:space-x-3">
               <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                 <img
                   src="/assets/grid.svg"
@@ -289,14 +297,22 @@ export default function Home() {
                   className="opacity-60"
                 />
               </button>
-              <span className="text-sm font-normal tracking-wide text-gray-800 hidden lg:block opacity-60">DECORIS</span>
-              <img
-                src="/assets/grid.svg"
-                alt="Grid"
-                width={20}
-                height={20}
-                className="opacity-60 lg:opacity-100 hidden lg:block"
-              />
+              <div className="hidden lg:flex flex-col items-start space-y-2">
+                <img
+                  src="/assets/Decoris P.svg"
+                  alt="Decoris Logo"
+                  width={100}
+                  height={20}
+                  className="opacity-60"
+                />
+                <img
+                  src="/assets/grid.svg"
+                  alt="Grid"
+                  width={20}
+                  height={20}
+                  className="opacity-100"
+                />
+              </div>
             </div>
 
 
@@ -438,7 +454,7 @@ export default function Home() {
         {/* Content container with relative positioning */}
         <div className="relative z-10 min-h-screen">
           <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
-            <div className="flex items-center space-x-2 lg:space-x-3">
+            <div className="flex items-start space-x-2 lg:space-x-3">
               <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                 <img
                   src="/assets/grid.svg"
@@ -448,14 +464,22 @@ export default function Home() {
                   className="opacity-60"
                 />
               </button>
-              <span className="text-sm font-normal tracking-wide text-gray-800 hidden lg:block opacity-60">DECORIS</span>
-              <img
-                src="/assets/grid.svg"
-                alt="Grid"
-                width={20}
-                height={20}
-                className="opacity-60 lg:opacity-100 hidden lg:block"
-              />
+              <div className="hidden lg:flex flex-col items-start space-y-2">
+                <img
+                  src="/assets/Decoris P.svg"
+                  alt="Decoris Logo"
+                  width={100}
+                  height={20}
+                  className="opacity-60"
+                />
+                <img
+                  src="/assets/grid.svg"
+                  alt="Grid"
+                  width={20}
+                  height={20}
+                  className="opacity-100"
+                />
+              </div>
             </div>
 
 
@@ -512,26 +536,32 @@ export default function Home() {
             </div>
           </div>
 
+
+
           <div className="flex min-h-fit">
-            <div className="w-1/2 flex items-center justify-center p-12">
-              <div className="relative w-full max-w-lg">
-                <div className=" p-6 shadow-lg">
+              <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
+  <div className="relative w-full h-full">
+    <div className="shadow-lg">
                   <img src="/assets/petal.jpg" alt="Black Gold Glass Sculpture" className="w-full h-auto "
                     onClick={() => setSelectedImage('/assets/petal.jpg')}
                   />
                 </div>
 
-                <div className="flex space-x-2 mt-4 justify-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200  border border-gray-500 cursor-pointer transition-colors hover:border-gray-400 overflow-hidden">
-                    <img src="/assets/1.jpg" alt="Thumbnail 1" className="w-full h-full object-cover" />
+                <div className="flex space-x-2 mt-6 justify-center">
+                    {Array.from({ length: 8 }, (_, i) => (
+                      <div
+                        key={i + 1}
+                        className="w-[120px] border border-gray-400 cursor-pointer transition-colors hover:border-gray-600 overflow-hidden"
+                        onClick={() => setSelectedImage(`/page/${i + 1}.jpg`)}
+                      >
+                        <img
+                          src={`/page/${i + 1}.jpg`}
+                          alt={`Thumbnail ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
                   </div>
-                  {Array.from({ length: 8 }, (_, i) => (
-                    <div key={i + 1} className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200  border border-gray-200 cursor-pointer transition-colors hover:border-gray-400 overflow-hidden"
-                      onClick={() => setSelectedImage(`/page/${i + 1}.jpg`)}>
-                      <img src={`/page/${i + 1}.jpg`} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" />
-                    </div>
-                  ))}
-                </div>
                 <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to

@@ -1,6 +1,22 @@
 import React from 'react';
 
-const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdateQuantity }) => {
+type CartItem = {
+  id: string | number;
+  name: string;
+  image: string;
+  price: number;
+  quantity: number;
+};
+
+type ShoppingCartOverlayProps = {
+  isOpen: boolean;
+  cartItems: CartItem[];
+  onClose: () => void;
+  onRemoveItem: (id: string | number) => void;
+  onUpdateQuantity: (id: string | number, quantity: number) => void;
+};
+
+const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdateQuantity }: ShoppingCartOverlayProps) => {
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };

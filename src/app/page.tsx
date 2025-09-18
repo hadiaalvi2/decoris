@@ -7,7 +7,6 @@ import WishlistOverlay from './components/WishlistOverlay';
 export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentProduct, setCurrentProduct] = useState({
@@ -77,7 +76,7 @@ export default function Home() {
       if (!existingItem) {
         return [...prevItems, product];
       }
-      return prevItems; // Item already in wishlist
+      return prevItems; 
     });
   };
 
@@ -101,7 +100,7 @@ export default function Home() {
             {/* Navigation */}
             <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
               <div className="flex items-start space-x-2 lg:space-x-3">
-                <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                <button className="lg:hidden">
                   <img
                     src="/assets/grid.svg"
                     alt="Menu"
@@ -159,24 +158,6 @@ export default function Home() {
               </div>
             </nav>
 
-            {/* Mobile Menu Overlay */}
-            {isMobileMenuOpen && (
-              <div className="lg:hidden fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center space-y-8 text-lg font-medium tracking-widest uppercase">
-                <button className="absolute top-4 right-4 text-gray-800 text-3xl" onClick={() => setIsMobileMenuOpen(false)}>
-                  &times;
-                </button>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>INTERIOR</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OUTDOOR</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>FURNITURE</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>DECOR</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LIFESTYLE</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OTHER</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</a>
-              </div>
-            )}
-
             {/* Left Side Icons */}
             <div className="absolute top-36 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-16">
               <h3 className="text-gray-600 text-xs font-light mb-155 ml-1 tracking-wider mt-75">Black Gold Glass Sculpture</h3>
@@ -201,17 +182,17 @@ export default function Home() {
             {/* Main Content */}
             <div className="flex flex-col lg:flex-row min-h-fit pt-8">
               {/* Product Image */}
-              <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
-  <div className="relative w-full h-full">
-    <div className="shadow-lg">
-      <img
-        src="/assets/1.jpg"
-        alt="Black Gold Glass Sculpture"
-        className="w-full h-full object-contain"
-        onClick={() => setSelectedImage('/assets/1.jpg')}
-      />
-    </div>
- 
+             <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
+                <div className="relative w-full h-full">
+                  <div className="shadow-lg">
+                    <img
+                      src="/assets/1.jpg"
+                      alt="Black Gold Glass Sculpture"
+                      className="w-full max-w-35xl h-auto object-contain" 
+                      onClick={() => setSelectedImage('/assets/1.jpg')}
+                    />
+                  </div>
+              
                   <div className="flex space-x-2 mt-6 justify-center">
                     {Array.from({ length: 8 }, (_, i) => (
                       <div
@@ -229,11 +210,9 @@ export default function Home() {
                   </div>
 
 
-                  <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
-                    This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
-                    As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
-                    be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
-                  </p>
+                  <p className="text-xs text-gray-600 tracking-wide text-center mt-6 mx-auto opacity-60  ">
+  This item is carefully crafted by skilled artisans, who devote continuous care to its creation. As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
+</p>
                 </div>
               </div>
 
@@ -296,7 +275,7 @@ export default function Home() {
         <div className="relative z-10 min-h-screen">
           <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
             <div className="flex items-start space-x-2 lg:space-x-3">
-              <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <button className="lg:hidden">
                 <img
                   src="/assets/grid.svg"
                   alt="Menu"
@@ -344,24 +323,6 @@ export default function Home() {
               </div>
             </div>
           </nav>
-
-          {/* Mobile Menu Overlay for Page 2 */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center space-y-8 text-lg font-medium tracking-widest uppercase">
-              <button className="absolute top-4 right-4 text-gray-800 text-3xl" onClick={() => setIsMobileMenuOpen(false)}>
-                &times;
-              </button>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>INTERIOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OUTDOOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>FURNITURE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>DECOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LIFESTYLE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OTHER</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</a>
-            </div>
-          )}
 
           <div className="absolute top-24 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
             <h3 className="text-gray-600 text-xs font-light mb-143 ml-22 tracking-wider mt-100">Black Gold Glass Sculpture</h3>
@@ -464,7 +425,7 @@ export default function Home() {
         <div className="relative z-10 min-h-screen">
           <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
             <div className="flex items-start space-x-2 lg:space-x-3">
-              <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <button className="lg:hidden" onClick={() => setIsWishlistOpen(!isWishlistOpen)}>
                 <img
                   src="/assets/grid.svg"
                   alt="Menu"
@@ -512,24 +473,6 @@ export default function Home() {
               </div>
             </div>
           </nav>
-
-          {/* Mobile Menu Overlay for Page 3 */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center space-y-8 text-lg font-medium tracking-widest uppercase">
-              <button className="absolute top-4 right-4 text-gray-800 text-3xl" onClick={() => setIsMobileMenuOpen(false)}>
-                &times;
-              </button>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>INTERIOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OUTDOOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>FURNITURE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>DECOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LIFESTYLE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OTHER</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</a>
-            </div>
-          )}
 
           <div className="absolute top-24 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
          

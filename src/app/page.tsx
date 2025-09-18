@@ -179,11 +179,19 @@ export default function Home() {
 
             {/* Left Side Icons */}
             <div className="absolute top-36 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-16">
-              <h3 className="text-gray-600 text-xs font-light mb-155 ml-1 tracking-wider mt-50">Black Gold Glass Sculpture</h3>
+              <h3 className="text-gray-600 text-xs font-light mb-155 ml-1 tracking-wider mt-75">Black Gold Glass Sculpture</h3>
               <div className="space-y-4">
                <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
-                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-20 mb-290 opacity-60 hover:opacity-100 transition-opacity" />
+                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-25 mb-290  hover:opacity-100 transition-opacity" />
                 </div>
+
+                <div className="w-10 h-10 flex items-center justify-center cursor-pointer "
+                onClick={() => addToWishlist(currentProduct)}>
+              </div>
+
+              <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
+                <img src="/assets/square.svg" alt="View" width={20} height={20} className="mb-260 mr-25 mt-90  hover:opacity-100 transition-opacity" />
+              </div>
 
 
 
@@ -279,10 +287,10 @@ export default function Home() {
       {/* Second Page */}
       <div className="min-h-screen relative">
         {/* Background image that covers the entire page */}
-        <div
-          className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
-        ></div>
+       <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
+      ></div>
 
         {/* Content container with relative positioning */}
         <div className="relative z-10 min-h-screen">
@@ -359,14 +367,15 @@ export default function Home() {
             <h3 className="text-gray-600 text-xs font-light mb-143 ml-22 tracking-wider mt-100">Black Gold Glass Sculpture</h3>
             <div className="space-y-4">
               <div className="w-10 h-10 flex items-center justify-center cursor-pointer mb-90">
-                <img src="/assets/share.svg" alt="Share" width={20} height={20} className="opacity-40 hover:opacity-100 transition-opacity" />
-              </div>
+                <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-20 mb-290 ml-34 mt-22  hover:opacity-100 transition-opacity" />
+                </div>
+
               <div className="w-10 h-10 flex items-center justify-center cursor-pointer "
                 onClick={() => addToWishlist(currentProduct)}>
               </div>
 
               <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
-                <img src="/assets/square.svg" alt="View" width={20} height={20} className="opacity-40 hover:opacity-100 transition-opacity" />
+                <img src="/assets/square.svg" alt="View" width={20} height={20} className="mb-260 ml-20  hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </div>
@@ -523,14 +532,20 @@ export default function Home() {
           )}
 
           <div className="absolute top-24 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
+         
 
             <div className="space-y-4">
               <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
-                <img src="/assets/share.svg" alt="Share" width={20} height={20} className="opacity-40 hover:opacity-100 transition-opacity" />
-              </div>
+               <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-20 ml-10 mb-75 hover:opacity-100 transition-opacity" />
+                </div>
+
 
               <div className="w-10 h-10 flex items-center justify-center cursor-pointer "
                 onClick={() => addToWishlist(currentProduct)}>
+              </div>
+
+              <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
+                <img src="/assets/square.svg" alt="View" width={20} height={20} className=" mr-7 mt-55 hover:opacity-100 transition-opacity" />
               </div>
               
             </div>

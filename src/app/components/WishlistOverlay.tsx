@@ -22,10 +22,24 @@ const WishlistOverlay: React.FC<WishlistOverlayProps> = ({ isOpen, wishlistItems
   return (
     <div className="fixed inset-0 z-40" onClick={onClose} style={{ backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
       <div 
-        className="fixed right-0 top-0 h-full w-full max-w-[350px] bg-white shadow-lg z-50 p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out border-l border-gray-200"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the wishlist
+        className="fixed right-0 top-0 h-full w-full md:max-w-[350px] bg-white shadow-lg z-50 overflow-y-auto transform transition-transform duration-300 ease-in-out border-l border-gray-200"
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-6">
+        {/* Mobile Header */}
+        <div className="md:hidden flex items-center justify-between px-4 py-4 border-b border-gray-200">
+          <div className="flex items-center space-x-2">
+            <img src="/assets/grid.svg" alt="Grid" width={20} height={20} className="opacity-100" />
+            <img src="/assets/Decoris P.svg" alt="Decoris Logo" width={80} height={16} className="opacity-60" />
+          </div>
+          <div className="flex items-center space-x-4">
+            <img src="/assets/profile.svg" alt="Profile" width={16} height={18} className="opacity-60" />
+            <img src="/assets/favourite.svg" alt="Favourites" width={20} height={18} className="opacity-60" />
+            <img src="/assets/BAG.svg" alt="Bag" width={16} height={18} className="opacity-60" />
+          </div>
+        </div>
+
+        {/* Desktop Header */}
+        <div className="hidden md:flex justify-between items-center p-6 mb-6">
           <h2 className="text-sm font-normal tracking-widest flex items-center">
             WISHLIST 
             <span className="ml-2">
@@ -39,30 +53,46 @@ const WishlistOverlay: React.FC<WishlistOverlayProps> = ({ isOpen, wishlistItems
           </button>
         </div>
 
-        {wishlistItems.length === 0 ? (
-          <p className="text-xs text-gray-500 mb-4">You have 0 product(s) in your wishlist</p>
-        ) : (
-          <>
-            <p className="text-xs text-gray-600 mb-4">You have {wishlistItems.length} product(s) in your wishlist.</p>
-            {wishlistItems.map((item) => (
-              <div key={item.id} className="flex items-center mb-4 border-b pb-4 last:border-b-0">
-                <img src={item.image} alt={item.name} className="w-20 h-20 object-cover mr-4" />
-                <div className="flex-grow text-sm">
-                  <h3 className="font-medium text-gray-800">{item.name}</h3>
-                  <p className="text-xs text-gray-500 mt-1">£{item.price.toFixed(2)} <span className="text-gray-400">including VAT</span></p>
-                  <p className="text-xs text-gray-500">{item.sku}</p>
-                </div>
-                <button 
-                    onClick={() => onRemoveItem(item.id)}
-                    className="text-red-500 text-xs hover:text-red-700"
-                >
-                    Remove
-                </button>
-              </div>
-            ))}
-          </>
-        )}
+        {/* Mobile Title */}
+        <div className="md:hidden px-4 py-2">
+          <h2 className="text-sm font-normal tracking-widest flex items-center">
+            WISHLIST
+            <span className="ml-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </h2>
+        </div>
 
+        <div className="p-4 md:px-6">
+          {wishlistItems.length === 0 ? (
+            <p className="text-xs text-gray-500 mb-4">You have 0 product(s) in your wishlist</p>
+          ) : (
+            <>
+              <p className="text-xs text-gray-600 mb-4">You have {wishlistItems.length} product(s) in your wishlist.</p>
+              {wishlistItems.map((item) => (
+                <div key={item.id} className="flex items-start mb-6 pb-6 border-b border-gray-100 last:border-b-0">
+                  <img src={item.image} alt={item.name} className="w-16 h-16 md:w-20 md:h-20 object-cover mr-4 flex-shrink-0" />
+                  <div className="flex-grow min-w-0">
+                    <h3 className="text-xs font-medium text-gray-800 mb-1">{item.name}</h3>
+                    <p className="text-xs text-gray-500 mb-1">£{item.price.toFixed(2)} <span className="text-gray-400">including VAT</span></p>
+                    <p className="text-xs text-gray-500 mb-2">{item.sku}</p>
+                    
+                    <div className="flex justify-end">
+                      <button 
+                        onClick={() => onRemoveItem(item.id)}
+                        className="text-red-500 text-xs hover:text-red-700"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

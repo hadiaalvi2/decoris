@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import ShoppingCartOverlay from './components/ShoppingCartOverlay';
 import WishlistOverlay from './components/WishlistOverlay';
+import Image from 'next/image';
 
 export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -109,7 +110,7 @@ export default function Home() {
       const existingItem = prevItems.find((item) => item.id === product.id);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id ? { ...item, quantity: item.quantity! + 1 } : item
         );
       } else {
         return [...prevItems, { ...product, quantity: 1 }];
@@ -131,7 +132,7 @@ export default function Home() {
     setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
 
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity!, 0);
 
   return (
     <>
@@ -141,7 +142,7 @@ export default function Home() {
             <nav className="flex items-center justify-between px-4 py-4 md:px-8 lg:px-16 lg:py-6">
               <div className="flex items-start space-x-2 lg:space-x-3">
                 <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                  <img
+                  <Image
                     src="/assets/grid.svg"
                     alt="Menu"
                     width={20}
@@ -150,14 +151,14 @@ export default function Home() {
                   />
                 </button>
                 <div className="hidden lg:flex flex-col items-start space-y-2">
-                  <img
+                  <Image
                     src="/assets/Decoris P.svg"
                     alt="Decoris Logo"
                     width={100}
                     height={20}
                     className="opacity-60"
                   />
-                  <img
+                  <Image
                     src="/assets/grid.svg"
                     alt="Grid"
                     width={20}
@@ -178,8 +179,8 @@ export default function Home() {
                 <a href="#" className="text-gray-600 hover:underline">CONTACT</a>
               </div>
               <div className="flex items-center space-x-4 lg:space-x-6">
-                <img src="/assets/profile.svg" alt="Profile" width={19} height={22} className="opacity-60 hover:opacity-100 transition-opacity" />
-                <img
+                <Image src="/assets/profile.svg" alt="Profile" width={19} height={22} className="opacity-60 hover:opacity-100 transition-opacity" />
+                <Image
                   src="/assets/favourite.svg"
                   alt="Favourites"
                   width={24}
@@ -188,7 +189,7 @@ export default function Home() {
                   onClick={() => setIsWishlistOpen(!isWishlistOpen)}
                 />
                 <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
-                  <img src="/assets/BAG.svg" alt="Bag" width={20} height={22} className="opacity-60 transition-opacity" />
+                  <Image src="/assets/BAG.svg" alt="Bag" width={20} height={22} className="opacity-60 transition-opacity" />
                   {totalItems > 0 && (
                     <span className="absolute -top-2 -right-2 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
                       {totalItems}
@@ -204,14 +205,14 @@ export default function Home() {
                 {/* Header */}
                 <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
                   <div className="flex items-center space-x-2">
-                    <img
+                    <Image
                       src="/assets/grid.svg"
                       alt="Grid"
                       width={20}
                       height={20}
                       className="opacity-100"
                     />
-                    <img
+                    <Image
                       src="/assets/Decoris P.svg"
                       alt="Decoris Logo"
                       width={80}
@@ -220,9 +221,9 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex items-center space-x-4">
-                    <img src="/assets/profile.svg" alt="Profile" width={16} height={18} className="opacity-60" />
-                    <img src="/assets/favourite.svg" alt="Favourites" width={20} height={18} className="opacity-60" />
-                    <img src="/assets/BAG.svg" alt="Bag" width={16} height={18} className="opacity-60" />
+                    <Image src="/assets/profile.svg" alt="Profile" width={16} height={18} className="opacity-60" />
+                    <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={18} className="opacity-60" />
+                    <Image src="/assets/BAG.svg" alt="Bag" width={16} height={18} className="opacity-60" />
                   </div>
                 </div>
 
@@ -253,16 +254,19 @@ export default function Home() {
 
             {/* Left Side Icons */}
           <div className="absolute top-32 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-12">
-            <h3 className="text-gray-600 text-xs font-light mb-120 ml-2 tracking-wider">Black Gold Glass Sculpture</h3>
+            <h3 className="text-gray-600 text-xs font-light mb-6 ml-1 tracking-wider">Black Gold Glass Sculpture</h3>
             <div className="space-y-4">
              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-12 mb-225" />
+                  <Image src="/assets/share.svg" alt="Share" width={14} height={14} className="hover:opacity-100 transition-opacity" />
                 </div>
 
-           
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors"
+                onClick={() => addToWishlist(currentProduct)}>
+                  <Image src="/assets/favourite.svg" alt="Favourite" width={16} height={16} className="hover:opacity-100 transition-opacity" />
+              </div>
 
               <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                  <img src="/assets/square.svg" alt="View" width={16} height={16} className="mr-10 mb-9" />
+                  <Image src="/assets/square.svg" alt="View" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
               </div>
             </div>
@@ -273,15 +277,17 @@ export default function Home() {
             <div className="w-full lg:w-3/5 flex items-center justify-center px-6 py-8 lg:pt-12 lg:pl-16">
               <div className="relative w-full max-w-5xl">
                 <div className="shadow-lg">
-                  <img
+                  <Image
                     src={mainImage}
                     alt="Black Gold Glass Sculpture"
+                    width={800}
+                    height={500}
                     className="w-full h-[500px] object-cover"
                   />
                 </div>
  
                 <div className="flex space-x-2 mt-4 justify-center overflow-x-auto">
-                  {products.map((product, index) => (
+                  {products.map((product) => (
                     <div
                       key={product.id}
                       className={`w-24 h-16 border cursor-pointer transition-all duration-200 hover:border-gray-600 overflow-hidden flex-shrink-0 ${
@@ -292,16 +298,18 @@ export default function Home() {
                         addToCart(product); 
                       }}
                     >
-                      <img
+                      <Image
                         src={product.image}
                         alt={product.name}
+                        width={96}
+                        height={64}
                         className="w-full h-full object-cover"
                       />
                     </div>
                   ))}
                 </div>
 
-                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 opacity-60">
+                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
                   be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.

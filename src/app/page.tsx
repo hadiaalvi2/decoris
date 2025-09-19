@@ -314,7 +314,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60">
+                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6  mx-auto opacity-60">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
                   be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.

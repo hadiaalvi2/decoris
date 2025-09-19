@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 type CartItem = {
   id: string | number;
@@ -7,6 +6,7 @@ type CartItem = {
   image: string;
   price: number;
   quantity: number;
+  sku?: string;
 };
 
 type ShoppingCartOverlayProps = {
@@ -72,38 +72,23 @@ const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdat
             <p className="text-xs text-gray-500 mb-4">You have 0 product(s) in your shopping cart</p>
           ) : (
             <>
-              <p className="text-xs text-gray-600 mb-4">You have {cartItems.length} product(s) in your shopping cart</p>
+              <p className="text-xs text-gray-600 mb-4">You have {cartItems.reduce((sum, item) => sum + item.quantity, 0)} product(s) in your shopping cart</p>
               {cartItems.map((item) => (
                 <div key={item.id} className="flex items-start mb-6 pb-6 border-b border-gray-100 last:border-b-0">
                   <img src={item.image} alt={item.name} className="w-16 h-16 md:w-20 md:h-20 object-cover mr-4 flex-shrink-0" />
                   <div className="flex-grow min-w-0">
                     <h3 className="text-xs font-medium text-gray-800 mb-1">{item.name}</h3>
-                    <p className="text-xs text-gray-500 mb-1">£{item.price.toFixed(2)} <span className="text-gray-400">excluding VAT</span></p>
-                    <p className="text-xs text-gray-500 mb-2">78821001</p>
+                    <p className="text-xs text-gray-500 mb-1">£{item.price.toFixed(2)} <span className="text-gray-400">Including VAT</span></p>
+                    <p className="text-xs text-gray-500 mb-2">{item.sku || '78621091'}</p>
                     
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-600">Quantity: {item.quantity}</span>
-                      <div className="flex items-center space-x-2">
-                        <button 
-                          onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-                          disabled={item.quantity === 1}
-                          className="w-6 h-6 flex items-center justify-center text-gray-500 hover:text-gray-700 disabled:opacity-50 text-sm border border-gray-300"
-                        >
-                          -
-                        </button>
-                        <button 
-                          onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                          className="w-6 h-6 flex items-center justify-center text-gray-500 hover:text-gray-700 text-sm border border-gray-300"
-                        >
-                          +
-                        </button>
-                        <button 
-                          onClick={() => onRemoveItem(item.id)}
-                          className="text-red-500 text-xs hover:text-red-700 ml-2"
-                        >
-                          Remove
-                        </button>
-                      </div>
+                      <button 
+                        onClick={() => onRemoveItem(item.id)}
+                        className="text-red-500 text-xs hover:text-red-700 ml-2"
+                      >
+                        Remove
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -111,7 +96,10 @@ const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdat
             </>
           )}
 
-          <button className="w-full bg-black text-white py-3 px-4 text-xs font-normal tracking-widest hover:bg-gray-800 mt-6">
+          <button 
+            className="w-full text-white py-3 px-4 text-xs font-normal tracking-widest hover:bg-opacity-90 mt-6"
+            style={{ backgroundColor: '#29003A' }}
+          >
             VIEW SHOPPING CART
           </button>
         </div>

@@ -11,31 +11,73 @@ export default function Home() {
   // State for current main image
   const [mainImage, setMainImage] = useState('/Product Images/1.png');
   
-  const currentProduct = {
-    id: '1',
-    name: 'Black Gold Glass Sculpture',
-    price: 1500.00,
-    image: '/Product Images/1.png',
-    sku: '78621091',
-  };
-
-  // Product Images array for thumbnails
-  const productImages = [
-    '/Product Images/1.png',
-    '/Product Images/2.png',
-    '/Product Images/3.png',
-    '/Product Images/4.png',
-    '/Product Images/5.png',
-    '/Product Images/6.png',
-    '/Product Images/7.png',
-    '/Product Images/8.png',
+  // Product data for each image
+  const products = [
+    {
+      id: '1',
+      name: 'Black Gold Glass Sculpture',
+      price: 1500.00,
+      image: '/Product Images/1.png',
+      sku: '78621091',
+    },
+    {
+      id: '2',
+      name: 'Gold Glass Sculpture',
+      price: 2325.00,
+      image: '/Product Images/2.png',
+      sku: '78621113',
+    },
+    {
+      id: '3',
+      name: 'Marble White Black Coffee Table',
+      price: 3400.00,
+      image: '/Product Images/3.png',
+      sku: '78622459',
+    },
+    {
+      id: '4',
+      name: 'Black Glass Ornament',
+      price: 1200.00,
+      image: '/Product Images/4.png',
+      sku: '78622487',
+    },
+    {
+      id: '5',
+      name: 'Gold Brass Sculpture',
+      price: 2500.00,
+      image: '/Product Images/5.png',
+      sku: '78621114',
+    },
+    {
+      id: '6',
+      name: 'Silver Glass Sculpture',
+      price: 1800.00,
+      image: '/Product Images/6.png',
+      sku: '78621115',
+    },
+    {
+      id: '7',
+      name: 'Crystal Glass Table',
+      price: 4200.00,
+      image: '/Product Images/7.png',
+      sku: '78622460',
+    },
+    {
+      id: '8',
+      name: 'Modern Glass Art',
+      price: 1600.00,
+      image: '/Product Images/8.png',
+      sku: '78622488',
+    },
   ];
 
+  const currentProduct = products[0]; // Default to first product
+
   const [cartItems, setCartItems] = useState([
-    { id: '1', name: 'Gold Glass Sculpture', price: 2325.00, image: '/assets/2.jpg', quantity: 1 },
-    { id: '2', name: 'Black Gold Glass Sculpture', price: 1500.00, image: '/assets/1.jpg', quantity: 1 },
-    { id: '3', name: 'Marble White Black Coffee Table', price: 3400.00, image: '/assets/3.jpg', quantity: 1 },
-    { id: '4', name: 'Black Glass Ornament', price: 1200.00, image: '/assets/1.jpg', quantity: 2 },
+    { id: '1', name: 'Gold Glass Sculpture', price: 2325.00, image: '/assets/2.jpg', quantity: 1, sku: '78821113' },
+    { id: '2', name: 'Black Gold Glass Sculpture', price: 1500.00, image: '/assets/1.jpg', quantity: 1, sku: '78821091' },
+    { id: '3', name: 'Marble White Black Coffee Table', price: 3400.00, image: '/assets/3.jpg', quantity: 1, sku: '78822459' },
+    { id: '4', name: 'Black Glass Ornament', price: 1200.00, image: '/assets/1.jpg', quantity: 2, sku: '78822487' },
   ]);
 
   const [wishlistItems, setWishlistItems] = useState([
@@ -51,6 +93,7 @@ export default function Home() {
     price: number;
     image: string;
     quantity?: number;
+    sku?: string;
   };
 
   type WishlistItem = {
@@ -203,23 +246,23 @@ export default function Home() {
                   <div className="flex justify-between items-center text-xs text-gray-500">
                     <span>EUROS | ENGLISH</span>
                   </div>
-                  <p className="text-xs text-gray-400 mt-2">© COPYRIGHT 2021 DECORIS ARTFful UK. SOUTH KENSINGTON.</p>
+                  <p className="text-xs text-gray-400 mt-2">© COPYRIGHT 2021 DECORIS ARTFUL UK. SOUTH KENSINGTON.</p>
                 </div>
               </div>
             )}
 
             {/* Left Side Icons */}
           <div className="absolute top-32 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-12">
-            <h3 className="text-gray-600 text-xs font-light  ml-4 tracking-wider mb-120">Black Gold Glass Sculpture</h3>
+            <h3 className="text-gray-600 text-xs font-light mb-120 ml-2 tracking-wider">Black Gold Glass Sculpture</h3>
             <div className="space-y-4">
              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-12 mb-230" />
+                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-12 mb-225" />
                 </div>
 
-             
+           
 
               <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                  <img src="/assets/square.svg" alt="View" width={16} height={16} className="mr-12 mb-8" />
+                  <img src="/assets/square.svg" alt="View" width={16} height={16} className="mr-10 mb-9" />
               </div>
               </div>
             </div>
@@ -238,24 +281,27 @@ export default function Home() {
                 </div>
  
                 <div className="flex space-x-2 mt-4 justify-center overflow-x-auto">
-                  {productImages.map((imagePath, index) => (
+                  {products.map((product, index) => (
                     <div
-                      key={index}
+                      key={product.id}
                       className={`w-24 h-16 border cursor-pointer transition-all duration-200 hover:border-gray-600 overflow-hidden flex-shrink-0 ${
-                        mainImage === imagePath ? 'border-blue-400 shadow-sm' : 'border-gray-300'
+                        mainImage === product.image ? 'border-blue-400 shadow-sm' : 'border-gray-300'
                       }`}
-                      onClick={() => setMainImage(imagePath)}
+                      onClick={() => {
+                        setMainImage(product.image);
+                        addToCart(product); 
+                      }}
                     >
                       <img
-                        src={imagePath}
-                        alt={`Thumbnail ${index + 1}`}
+                        src={product.image}
+                        alt={product.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
                   ))}
                 </div>
 
-                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6  opacity-60">
+                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 opacity-60">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
                   be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
@@ -298,8 +344,8 @@ export default function Home() {
                 </div>
 
                 <button
-                  className="w-full text-gray-800 py-3 px-8 border border-gray-800 text-xs font-normal tracking-widest uppercase transition-colors hover:bg-gray-800 hover:text-white"
-                  onClick={() => addToCart({ id: '1', name: 'Black Gold Glass Sculpture', price: 1500.00, image: '/Product Images/1.png' })}
+                  className="w-full text-gray-800 py-3 px-8 border border-gray-800 text-xs font-normal tracking-widest uppercase transition-colors hover:bg-[#29003A] hover:text-white"
+                  onClick={() => addToCart(currentProduct)}
                 >
                   ADD TO CART
                 </button>

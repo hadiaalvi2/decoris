@@ -10,6 +10,11 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  
+  // State for current main images on each page
+  const [page1MainImage, setPage1MainImage] = useState('/assets/1.jpg');
+  const [page2MainImage, setPage2MainImage] = useState('/assets/2.jpg');
+  const [page3MainImage, setPage3MainImage] = useState('/assets/petal.jpg');
   const [currentProduct, setCurrentProduct] = useState({
     id: '1',
     name: 'Black Gold Glass Sculpture',
@@ -90,12 +95,7 @@ export default function Home() {
   return (
     <>
       {currentPage === 1 && (
-        <div className="min-h-screen relative">
-          {/* Background Image */}
-          <div
-            className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/assets/bg.jpg')" }}
-          ></div>
+        <div className="min-h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/bg.jpg')" }}>
 
           <div className="relative z-10 w-full max-w-screen-2xl mx-auto">
             {/* Navigation */}
@@ -202,22 +202,24 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row min-h-fit pt-8">
               {/* Product Image */}
               <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
-  <div className="relative w-full h-full">
-    <div className="shadow-lg">
-      <img
-        src="/assets/1.jpg"
-        alt="Black Gold Glass Sculpture"
-        className="w-full h-full object-contain"
-        onClick={() => setSelectedImage('/assets/1.jpg')}
-      />
-    </div>
+                <div className="relative w-full h-full">
+                  <div className="shadow-lg">
+                    <img
+                      src={page1MainImage}
+                      alt="Black Gold Glass Sculpture"
+                      className="w-full h-full object-contain"
+                      onClick={() => setSelectedImage(page1MainImage)}
+                    />
+                  </div>
  
                   <div className="flex space-x-2 mt-6 justify-center">
                     {Array.from({ length: 8 }, (_, i) => (
                       <div
                         key={i + 1}
-                        className="w-[120px] border border-gray-400 cursor-pointer transition-colors hover:border-gray-600 overflow-hidden"
-                        onClick={() => setSelectedImage(`/page/${i + 1}.jpg`)}
+                        className={`w-[120px] border cursor-pointer transition-colors hover:border-gray-600 overflow-hidden ${
+                          page1MainImage === `/page/${i + 1}.jpg` ? 'border-gray-800' : 'border-gray-400'
+                        }`}
+                        onClick={() => setPage1MainImage(`/page/${i + 1}.jpg`)}
                       >
                         <img
                           src={`/page/${i + 1}.jpg`}
@@ -227,7 +229,6 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-
 
                   <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
                     This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
@@ -285,12 +286,7 @@ export default function Home() {
       )}
 
       {/* Second Page */}
-      <div className="min-h-screen relative">
-        {/* Background image that covers the entire page */}
-       <div
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
-      ></div>
+      <div className="min-h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/page/bg2.jpg')" }}>
 
         {/* Content container with relative positioning */}
         <div className="relative z-10 min-h-screen">
@@ -380,19 +376,21 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex min-h-screen">
-            <div className="w-1/2 flex items-center justify-center p-12">
+          <div className="flex min-h-screen flex-col md:flex-row">
+            <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12">
               <div className="relative w-full max-w-lg">
-                <div className=" ">
-                  <img src="/assets/2.jpg" alt="Black Gold Glass Sculpture" className="w-full h-auto "
-                    onClick={() => setSelectedImage('/assets/2.jpg')}
+                <div className="shadow-lg">
+                  <img src={page2MainImage} alt="Black Gold Glass Sculpture" className="w-full h-auto object-contain"
+                    onClick={() => setSelectedImage(page2MainImage)}
                   />
                 </div>
 
                 <div className="flex space-x-2 mt-4 justify-center">
                   {['/page/9.jpg', '/page/2.jpg', '/page/3.jpg', '/page/4.jpg', '/page/5.jpg', '/page/6.jpg', '/page/7.jpg', '/page/8.jpg'].map((imagePath, index) => (
-                    <div key={index} className="w-14 h-14 bg-gray-200 border border-gray-500 cursor-pointer transition-colors hover:border-gray-400 overflow-hidden"
-                      onClick={() => setSelectedImage(imagePath)}>
+                    <div key={index} className={`w-14 h-14 bg-gray-200 border cursor-pointer transition-colors hover:border-gray-400 overflow-hidden ${
+                      page2MainImage === imagePath ? 'border-gray-800' : 'border-gray-500'
+                    }`}
+                      onClick={() => setPage2MainImage(imagePath)}>
                       <img src={imagePath} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
                     </div>
                   ))}
@@ -453,12 +451,7 @@ export default function Home() {
       </div>
 
       {/* Third Page */}
-      <div className="min-h-screen relative">
-
-        <div
-          className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/assets/bg.jpg')" }}
-        ></div>
+      <div className="min-h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/bg.jpg')" }}>
 
         {/* Content container with relative positioning */}
         <div className="relative z-10 min-h-screen">
@@ -553,30 +546,32 @@ export default function Home() {
 
 
 
-          <div className="flex min-h-fit">
-              <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
-  <div className="relative w-full h-full">
-    <div className="shadow-lg">
-                  <img src="/assets/petal.jpg" alt="Black Gold Glass Sculpture" className="w-full h-auto "
-                    onClick={() => setSelectedImage('/assets/petal.jpg')}
+          <div className="flex min-h-fit flex-col lg:flex-row">
+            <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
+              <div className="relative w-full h-full">
+                <div className="shadow-lg">
+                  <img src={page3MainImage} alt="Black Gold Glass Sculpture" className="w-full h-auto object-contain"
+                    onClick={() => setSelectedImage(page3MainImage)}
                   />
                 </div>
 
                 <div className="flex space-x-2 mt-6 justify-center">
-                    {Array.from({ length: 8 }, (_, i) => (
-                      <div
-                        key={i + 1}
-                        className="w-[120px] border border-gray-400 cursor-pointer transition-colors hover:border-gray-600 overflow-hidden"
-                        onClick={() => setSelectedImage(`/page/${i + 1}.jpg`)}
-                      >
-                        <img
-                          src={`/page/${i + 1}.jpg`}
-                          alt={`Thumbnail ${i + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  {Array.from({ length: 8 }, (_, i) => (
+                    <div
+                      key={i + 1}
+                      className={`w-[120px] border cursor-pointer transition-colors hover:border-gray-600 overflow-hidden ${
+                        page3MainImage === `/page/${i + 1}.jpg` ? 'border-gray-800' : 'border-gray-400'
+                      }`}
+                      onClick={() => setPage3MainImage(`/page/${i + 1}.jpg`)}
+                    >
+                      <img
+                        src={`/page/${i + 1}.jpg`}
+                        alt={`Thumbnail ${i + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
                 <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
@@ -632,16 +627,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Bottom Description for Page 3 */}
-      <div className="px-4 py-8 pb-16 md:px-16">
-        <div className="p-6 max-w-4xl mx-auto">
-          <p className="text-xs text-gray-600 tracking-wide leading-relaxed">
-            This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
-            As a result of its handmade and hand-finished nature, variations are to be expected and celebrated.
-            Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
-          </p>
-        </div>
-      </div>
+      
 
       <ShoppingCartOverlay
         isOpen={isCartOpen}

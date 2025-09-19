@@ -94,7 +94,7 @@ export default function Home() {
     price: number;
     image: string;
     quantity?: number;
-    sku?: string;
+    sku: string; // Changed from optional to required
   };
 
   type WishlistItem = {
@@ -105,12 +105,21 @@ export default function Home() {
     sku: string;
   };
 
+  type CartItem = {
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    quantity: number;
+    sku: string;
+  };
+
   const addToCart = (product: Product) => {
-    setCartItems((prevItems) => {
+    setCartItems((prevItems: CartItem[]) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity! + 1 } : item
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
         return [...prevItems, { ...product, quantity: 1 }];
@@ -132,7 +141,7 @@ export default function Home() {
     setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
 
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity!, 0);
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <>
@@ -254,23 +263,19 @@ export default function Home() {
 
             {/* Left Side Icons */}
           <div className="absolute top-32 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-12">
-            <h3 className="text-gray-600 text-xs font-light mb-6 ml-1 tracking-wider">Black Gold Glass Sculpture</h3>
+            <h3 className="text-gray-600 text-xs font-light mb-140 ml-2 tracking-wider">Black Gold Glass Sculpture</h3>
             <div className="space-y-4">
              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                  <Image src="/assets/share.svg" alt="Share" width={14} height={14} className="hover:opacity-100 transition-opacity" />
+                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-12 mb-260" />
                 </div>
 
-              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors"
-                onClick={() => addToWishlist(currentProduct)}>
-                  <Image src="/assets/favourite.svg" alt="Favourite" width={16} height={16} className="hover:opacity-100 transition-opacity" />
-              </div>
+           
 
               <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                  <Image src="/assets/square.svg" alt="View" width={16} height={16} className="hover:opacity-100 transition-opacity" />
+                  <img src="/assets/square.svg" alt="View" width={16} height={16} className="mr-10 mb-60" />
               </div>
               </div>
             </div>
-
             {/* Main Content */}
             <div className="flex flex-col lg:flex-row min-h-screen pt-8">
               {/* Product Image */}

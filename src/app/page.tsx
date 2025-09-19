@@ -161,62 +161,95 @@ export default function Home() {
 
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
-              <div className="lg:hidden fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center space-y-8 text-lg font-medium tracking-widest uppercase">
-                <button className="absolute top-4 right-4 text-gray-800 text-3xl" onClick={() => setIsMobileMenuOpen(false)}>
-                  &times;
-                </button>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>INTERIOR</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OUTDOOR</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>FURNITURE</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>DECOR</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LIFESTYLE</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OTHER</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-                <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</a>
+              <div className="lg:hidden fixed inset-0 z-40 bg-white">
+                {/* Header */}
+                <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+                  <div className="flex items-center space-x-2">
+                    <img
+                      src="/assets/grid.svg"
+                      alt="Grid"
+                      width={20}
+                      height={20}
+                      className="opacity-100"
+                    />
+                    <img
+                      src="/assets/Decoris P.svg"
+                      alt="Decoris Logo"
+                      width={80}
+                      height={16}
+                      className="opacity-60"
+                    />
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <img src="/assets/profile.svg" alt="Profile" width={16} height={18} className="opacity-60" />
+                    <img src="/assets/favourite.svg" alt="Favourites" width={20} height={18} className="opacity-60" />
+                    <img src="/assets/BAG.svg" alt="Bag" width={16} height={18} className="opacity-60" />
+                  </div>
+                </div>
+
+                {/* Menu Items */}
+                <div className="flex-1 px-4 py-6">
+                  <nav className="space-y-6">
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">INTERIOR</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OUTDOOR</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">FURNITURE</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">DECOR</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">LIFESTYLE</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OTHER</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">ABOUT</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">SHIPPING</a>
+                    <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">CONTACT</a>
+                  </nav>
+                </div>
+
+                {/* Footer */}
+                <div className="px-4 py-6 border-t border-gray-200">
+                  <div className="flex justify-between items-center text-xs text-gray-500">
+                    <span>EUROS | ENGLISH</span>
+                  </div>
+                  <p className="text-xs text-gray-400 mt-2">© COPYRIGHT 2021 DECORIS ARTFUL UK. SOUTH KENSINGTON.</p>
+                </div>
               </div>
             )}
 
             {/* Left Side Icons */}
-            <div className="absolute top-36 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-16">
-              <h3 className="text-gray-600 text-xs font-light mb-155 ml-1 tracking-wider mt-75">Black Gold Glass Sculpture</h3>
-              <div className="space-y-4">
+            <div className="absolute top-32 left-4 p-0 z-20 md:top-1/2 md:-translate-y-1/2 md:left-16">
+              <h3 className="text-gray-600 text-xs font-light mb-8 ml-1 tracking-wider">Black Gold Glass Sculpture</h3>
+              <div className="space-y-6">
                <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
-                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-25 mb-290  hover:opacity-100 transition-opacity" />
+                  <img src="/assets/share.svg" alt="Share" width={14} height={14} className="hover:opacity-100 transition-opacity" />
                 </div>
 
-                <div className="w-10 h-10 flex items-center justify-center cursor-pointer "
+                <div className="w-8 h-8 flex items-center justify-center cursor-pointer"
                 onClick={() => addToWishlist(currentProduct)}>
+                  <img src="/assets/favourite.svg" alt="Favourite" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
-                <img src="/assets/square.svg" alt="View" width={20} height={20} className="mb-260 mr-25 mt-90  hover:opacity-100 transition-opacity" />
+                <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
+                  <img src="/assets/square.svg" alt="View" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
-
-
-
               </div>
             </div>
 
             {/* Main Content */}
-            <div className="flex flex-col lg:flex-row min-h-fit pt-8">
+            <div className="flex flex-col lg:flex-row min-h-screen pt-8">
               {/* Product Image */}
-              <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
-                <div className="relative w-full h-full">
-                  <div className="shadow-lg">
-                    <img
+              <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-8 lg:pt-16 lg:pl-20">
+                <div className="relative w-full max-w-lg">
+    <div className="shadow-lg">
+      <img
                       src={page1MainImage}
-                      alt="Black Gold Glass Sculpture"
-                      className="w-full h-full object-contain"
+        alt="Black Gold Glass Sculpture"
+                      className="w-full h-auto object-contain"
                       onClick={() => setSelectedImage(page1MainImage)}
-                    />
-                  </div>
+      />
+    </div>
  
                   <div className="flex space-x-2 mt-6 justify-center">
                     {Array.from({ length: 8 }, (_, i) => (
                       <div
                         key={i + 1}
-                        className={`w-[120px] border cursor-pointer transition-colors hover:border-gray-600 overflow-hidden ${
+                        className={`w-24 h-20 border cursor-pointer transition-colors hover:border-gray-600 overflow-hidden ${
                           page1MainImage === `/page/${i + 1}.jpg` ? 'border-gray-800' : 'border-gray-400'
                         }`}
                         onClick={() => setPage1MainImage(`/page/${i + 1}.jpg`)}
@@ -230,7 +263,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
+                  <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60">
                     This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                     As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
                     be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
@@ -239,8 +272,8 @@ export default function Home() {
               </div>
 
               {/* Product Details */}
-              <div className="w-full lg:w-1/2 px-4 pt-4 lg:pr-16 flex flex-col justify-center">
-                <div className="max-w-lg p-8 rounded-sm mx-auto">
+              <div className="w-full lg:w-1/2 px-8 py-8 lg:pr-20 flex flex-col justify-center">
+                <div className="max-w-lg mx-auto">
                   <p className="text-xs text-gray-600 mb-6 tracking-widest">78821001</p>
 
                   <div className="mb-8">
@@ -255,7 +288,7 @@ export default function Home() {
                       four seasons of outdoor lounges complete with resort-style amenities...
                     </p>
                     <p className="text-xs text-gray-600 tracking-wide">
-                      Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
+                      Glass | 18ct Gold | Black | 6.5kg | H101mm x W400mm x L650mm
                     </p>
                   </div>
 
@@ -273,7 +306,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="w-full  text-gray-800 py-3 px-8 border border-gray-800 text-xs font-normal tracking-widest uppercase transition-colors "
+                    className="w-full text-gray-800 py-3 px-8 border border-gray-800 text-xs font-normal tracking-widest uppercase transition-colors hover:bg-gray-800 hover:text-white"
                     onClick={() => addToCart({ id: '1', name: 'Black Gold Glass Sculpture', price: 1500.00, image: '/assets/1.jpg' })}
                   >
                     ADD TO CART
@@ -343,41 +376,77 @@ export default function Home() {
 
           {/* Mobile Menu Overlay for Page 2 */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center space-y-8 text-lg font-medium tracking-widest uppercase">
-              <button className="absolute top-4 right-4 text-gray-800 text-3xl" onClick={() => setIsMobileMenuOpen(false)}>
-                &times;
-              </button>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>INTERIOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OUTDOOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>FURNITURE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>DECOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LIFESTYLE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OTHER</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</a>
+            <div className="lg:hidden fixed inset-0 z-40 bg-white">
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+                <div className="flex items-center space-x-2">
+                  <img
+                    src="/assets/grid.svg"
+                    alt="Grid"
+                    width={20}
+                    height={20}
+                    className="opacity-100"
+                  />
+                  <img
+                    src="/assets/Decoris P.svg"
+                    alt="Decoris Logo"
+                    width={80}
+                    height={16}
+                    className="opacity-60"
+                  />
+                </div>
+                <div className="flex items-center space-x-4">
+                  <img src="/assets/profile.svg" alt="Profile" width={16} height={18} className="opacity-60" />
+                  <img src="/assets/favourite.svg" alt="Favourites" width={20} height={18} className="opacity-60" />
+                  <img src="/assets/BAG.svg" alt="Bag" width={16} height={18} className="opacity-60" />
+                </div>
+              </div>
+
+              {/* Menu Items */}
+              <div className="flex-1 px-4 py-6">
+                <nav className="space-y-6">
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">INTERIOR</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OUTDOOR</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">FURNITURE</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">DECOR</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">LIFESTYLE</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OTHER</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">ABOUT</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">SHIPPING</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">CONTACT</a>
+                </nav>
+              </div>
+
+              {/* Footer */}
+              <div className="px-4 py-6 border-t border-gray-200">
+                <div className="flex justify-between items-center text-xs text-gray-500">
+                  <span>EUROS | ENGLISH</span>
+                </div>
+                <p className="text-xs text-gray-400 mt-2">© COPYRIGHT 2021 DECORIS ARTFUL UK. SOUTH KENSINGTON.</p>
+              </div>
             </div>
           )}
 
-          <div className="absolute top-24 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
-            <h3 className="text-gray-600 text-xs font-light mb-143 ml-22 tracking-wider mt-100">Black Gold Glass Sculpture</h3>
-            <div className="space-y-4">
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer mb-90">
-                <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-20 mb-290 ml-34 mt-22  hover:opacity-100 transition-opacity" />
+          <div className="absolute top-32 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
+            <h3 className="text-gray-600 text-xs font-light mb-8 ml-1 tracking-wider">Black Gold Glass Sculpture</h3>
+            <div className="space-y-6">
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
+                <img src="/assets/share.svg" alt="Share" width={14} height={14} className="hover:opacity-100 transition-opacity" />
                 </div>
 
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer "
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer"
                 onClick={() => addToWishlist(currentProduct)}>
+                <img src="/assets/favourite.svg" alt="Favourite" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
-                <img src="/assets/square.svg" alt="View" width={20} height={20} className="mb-260 ml-20  hover:opacity-100 transition-opacity" />
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
+                <img src="/assets/square.svg" alt="View" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </div>
 
           <div className="flex min-h-screen flex-col md:flex-row">
-            <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12">
+            <div className="w-full md:w-1/2 flex items-center justify-center px-8 py-8 md:p-12">
               <div className="relative w-full max-w-lg">
                 <div className="shadow-lg">
                   <img src={page2MainImage} alt="Black Gold Glass Sculpture" className="w-full h-auto object-contain"
@@ -385,9 +454,9 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="flex space-x-2 mt-4 justify-center">
+                <div className="flex space-x-2 mt-6 justify-center">
                   {['/page/9.jpg', '/page/2.jpg', '/page/3.jpg', '/page/4.jpg', '/page/5.jpg', '/page/6.jpg', '/page/7.jpg', '/page/8.jpg'].map((imagePath, index) => (
-                    <div key={index} className={`w-14 h-14 bg-gray-200 border cursor-pointer transition-colors hover:border-gray-400 overflow-hidden ${
+                    <div key={index} className={`w-20 h-16 bg-gray-200 border cursor-pointer transition-colors hover:border-gray-400 overflow-hidden ${
                       page2MainImage === imagePath ? 'border-gray-800' : 'border-gray-500'
                     }`}
                       onClick={() => setPage2MainImage(imagePath)}>
@@ -395,7 +464,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
+
+                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
                   be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
@@ -403,8 +473,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-1/2 px-4 pt-4 lg:p-12 flex flex-col justify-center">
-              <div className="max-w-lg p-8 mx-auto">
+            <div className="w-full md:w-1/2 px-4 pt-4 lg:p-12 flex flex-col justify-center">
+              <div className="max-w-lg p-4 lg:p-8 mx-auto">
                 <p className="text-xs text-gray-700 mb-6 tracking-wider">78821001</p>
 
                 <div className="mb-8">
@@ -508,71 +578,105 @@ export default function Home() {
 
           {/* Mobile Menu Overlay for Page 3 */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center space-y-8 text-lg font-medium tracking-widest uppercase">
-              <button className="absolute top-4 right-4 text-gray-800 text-3xl" onClick={() => setIsMobileMenuOpen(false)}>
-                &times;
-              </button>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>INTERIOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OUTDOOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>FURNITURE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>DECOR</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>LIFESTYLE</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>OTHER</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>ABOUT</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-              <a href="#" className="text-gray-800 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</a>
+            <div className="lg:hidden fixed inset-0 z-40 bg-white">
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+                <div className="flex items-center space-x-2">
+                  <img
+                    src="/assets/grid.svg"
+                    alt="Grid"
+                    width={20}
+                    height={20}
+                    className="opacity-100"
+                  />
+                  <img
+                    src="/assets/Decoris P.svg"
+                    alt="Decoris Logo"
+                    width={80}
+                    height={16}
+                    className="opacity-60"
+                  />
+                </div>
+                <div className="flex items-center space-x-4">
+                  <img src="/assets/profile.svg" alt="Profile" width={16} height={18} className="opacity-60" />
+                  <img src="/assets/favourite.svg" alt="Favourites" width={20} height={18} className="opacity-60" />
+                  <img src="/assets/BAG.svg" alt="Bag" width={16} height={18} className="opacity-60" />
+                </div>
+              </div>
+
+              {/* Menu Items */}
+              <div className="flex-1 px-4 py-6">
+                <nav className="space-y-6">
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">INTERIOR</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OUTDOOR</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">FURNITURE</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">DECOR</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">LIFESTYLE</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OTHER</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">ABOUT</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">SHIPPING</a>
+                  <a href="#" className="block text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">CONTACT</a>
+                </nav>
+              </div>
+
+              {/* Footer */}
+              <div className="px-4 py-6 border-t border-gray-200">
+                <div className="flex justify-between items-center text-xs text-gray-500">
+                  <span>EUROS | ENGLISH</span>
+                </div>
+                <p className="text-xs text-gray-400 mt-2">© COPYRIGHT 2021 DECORIS ARTFUL UK. SOUTH KENSINGTON.</p>
+              </div>
             </div>
           )}
 
-          <div className="absolute top-24 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
-         
-
-            <div className="space-y-4">
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
-               <img src="/assets/share.svg" alt="Share" width={14} height={14} className="mr-20 ml-10 mb-75 hover:opacity-100 transition-opacity" />
+          <div className="absolute top-32 left-4 p-0 z-20 md:left-8 md:top-1/2 md:-translate-y-1/2">
+            <h3 className="text-gray-600 text-xs font-light mb-8 ml-1 tracking-wider">Black Gold Glass Sculpture</h3>
+            <div className="space-y-6">
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
+                <img src="/assets/share.svg" alt="Share" width={14} height={14} className="hover:opacity-100 transition-opacity" />
                 </div>
 
-
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer "
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer"
                 onClick={() => addToWishlist(currentProduct)}>
+                <img src="/assets/favourite.svg" alt="Favourite" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="w-10 h-10 flex items-center justify-center cursor-pointer ">
-                <img src="/assets/square.svg" alt="View" width={20} height={20} className=" mr-7 mt-55 hover:opacity-100 transition-opacity" />
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer">
+                <img src="/assets/square.svg" alt="View" width={16} height={16} className="hover:opacity-100 transition-opacity" />
               </div>
-              
             </div>
           </div>
 
 
 
-          <div className="flex min-h-fit flex-col lg:flex-row">
-            <div className="w-full lg:w-1/2 flex items-center justify-center px-4 py-4 lg:pt-12 lg:pl-16">
-              <div className="relative w-full h-full">
-                <div className="shadow-lg">
+          <div className="flex min-h-screen flex-col lg:flex-row">
+            <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-8 lg:pt-16 lg:pl-20">
+              <div className="relative w-full max-w-lg">
+    <div className="shadow-lg">
                   <img src={page3MainImage} alt="Black Gold Glass Sculpture" className="w-full h-auto object-contain"
                     onClick={() => setSelectedImage(page3MainImage)}
                   />
                 </div>
 
                 <div className="flex space-x-2 mt-6 justify-center">
-                  {Array.from({ length: 8 }, (_, i) => (
-                    <div
-                      key={i + 1}
-                      className={`w-[120px] border cursor-pointer transition-colors hover:border-gray-600 overflow-hidden ${
+                    {Array.from({ length: 8 }, (_, i) => (
+                      <div
+                        key={i + 1}
+                      className={`w-24 h-20 border cursor-pointer transition-colors hover:border-gray-600 overflow-hidden ${
                         page3MainImage === `/page/${i + 1}.jpg` ? 'border-gray-800' : 'border-gray-400'
                       }`}
                       onClick={() => setPage3MainImage(`/page/${i + 1}.jpg`)}
-                    >
-                      <img
-                        src={`/page/${i + 1}.jpg`}
-                        alt={`Thumbnail ${i + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60 sm:max-w-lg">
+                      >
+                        <img
+                          src={`/page/${i + 1}.jpg`}
+                          alt={`Thumbnail ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center mt-6 max-w-sm mx-auto opacity-60">
                   This item is carefully crafted by skilled artisans, who devote continuous care to its creation.
                   As a result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and or other materials are to
                   be expected and celebrated. Each item is unique and possesses its individuality, ensuring that no two items are exactly alike.
@@ -580,8 +684,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-1/2 px-4 pt-4 lg:p-12 flex flex-col justify-center">
-              <div className="max-w-lg p-8 mx-auto">
+            <div className="w-full md:w-1/2 px-4 pt-4 lg:p-12 flex flex-col justify-center">
+              <div className="max-w-lg p-4 lg:p-8 mx-auto">
                 <p className="text-xs text-gray-700 mb-6 tracking-wider">78821001</p>
 
                 <div className="mb-8">
@@ -614,7 +718,7 @@ export default function Home() {
                 </div>
 
                 <button
-                  className="w-full bg-black text-white py-3 px-8 border border-gray-800 text-xs font-normal tracking-widest uppercase transition-colors "
+                  className="w-full text-gray-800 py-3 px-8 border border-gray-800 text-xs font-normal tracking-widest uppercase transition-colors hover:bg-gray-800 hover:text-white"
                   onClick={() => addToCart({ id: '3', name: 'DECORIS Sculpture', price: 1500.00, image: '/assets/petal.jpg' })}
                 >
                   ADD TO CART

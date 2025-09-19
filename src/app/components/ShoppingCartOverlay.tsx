@@ -31,9 +31,13 @@ const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdat
         onClick={(e) => e.stopPropagation()}
       >
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between px-4 py-4 border-b border-gray-200">
+        <div className="md:hidden flex items-center justify-between px-4 py-4 border-b border-gray-200 bg-gray-50">
           <div className="flex items-center space-x-2">
-            <img src="/assets/grid.svg" alt="Grid" width={20} height={20} className="opacity-100" />
+            <button onClick={onClose} className="text-gray-600 hover:text-gray-900">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
             <img src="/assets/Decoris P.svg" alt="Decoris Logo" width={80} height={16} className="opacity-60" />
           </div>
           <div className="flex items-center space-x-4">

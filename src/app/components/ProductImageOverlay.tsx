@@ -21,7 +21,12 @@ const ProductImageOverlay: React.FC<ProductImageOverlayProps> = ({ imageUrl, onC
         >
           &times;
         </button>
-        <img src={imageUrl} alt="Product" className="max-w-screen max-h-screen object-contain" />
+        <img 
+          src={imageUrl} 
+          alt="Product" 
+          className="max-w-[90vw] max-h-[90vh] object-contain"
+          style={{ imageRendering: 'high-quality' }}
+        />
       </div>
     </div>
   );

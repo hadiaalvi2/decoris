@@ -50,9 +50,9 @@ const WishlistOverlay: React.FC<WishlistOverlayProps> = ({ isOpen, wishlistItems
               className="opacity-60 sm:w-20 sm:h-4" 
             />
           </div>
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex items-center">
             <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
-            <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60 sm:w-5 sm:h-5" />
+            <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60 sm:w-2 sm:h-2" />
             <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
           </div>
         </div>
@@ -141,9 +141,7 @@ const WishlistOverlay: React.FC<WishlistOverlayProps> = ({ isOpen, wishlistItems
                       <p className="text-xs text-gray-500 mb-2 sm:mb-3">{item.sku}</p>
                       
                       <div className="flex items-center justify-between">
-                        <button className="text-xs sm:text-sm text-blue-600 hover:text-blue-800 px-2 py-1 hover:bg-blue-50 rounded transition-colors">
-                          Add to Cart
-                        </button>
+                        
                         <button 
                           onClick={() => onRemoveItem(item.id)}
                           className="text-red-500 text-xs sm:text-sm hover:text-red-700 px-2 py-1 hover:bg-red-50 rounded transition-colors"

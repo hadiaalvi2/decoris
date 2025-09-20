@@ -94,7 +94,7 @@ export default function Home() {
     price: number;
     image: string;
     quantity?: number;
-    sku: string; // Changed from optional to required
+    sku: string;
   };
 
   type WishlistItem = {
@@ -192,9 +192,9 @@ export default function Home() {
               <Image
                 src="/assets/favourite.svg"
                 alt="Favourites"
-                width={20}
-                height={19}
-                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+                width={16}
+                height={16}
+                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer sm:w-4 sm:h-4 lg:w-5 lg:h-5"
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
               />
               <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
@@ -208,68 +208,53 @@ export default function Home() {
             </div>
           </nav>
 
-          {/* Mobile Menu Overlay */}
+          {/* Mobile Menu Overlay - Updated to match the design */}
           {isMobileMenuOpen && (
             <div className="lg:hidden fixed inset-0 z-40 bg-white">
               {/* Header */}
-              <div className="flex items-center justify-between px-3 py-3 sm:px-4 sm:py-4 border-b border-gray-200">
-                <div className="flex items-center space-x-2">
-                  <Image
-                    src="/assets/grid.svg"
-                    alt="Grid"
-                    width={18}
-                    height={18}
-                    className="opacity-100 sm:w-5 sm:h-5"
-                  />
-                  <Image
-                    src="/assets/Decoris P.svg"
-                    alt="Decoris Logo"
-                    width={70}
-                    height={14}
-                    className="opacity-60 sm:w-20 sm:h-4"
-                  />
+              <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
+                <div className="flex items-center space-x-3">
+                  <h1 className="text-xl font-semibold">DECORIS</h1>
                 </div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
-                  <Image src="/assets/favourite.svg" alt="Favourites" width={18} height={16} className="opacity-60 sm:w-5 sm:h-5" />
-                  <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
-                </div>
+                <button onClick={() => setIsMobileMenuOpen(false)} className="text-2xl">
+                  ×
+                </button>
               </div>
 
               {/* Menu Items */}
-              <div className="flex-1 px-3 py-4 sm:px-4 sm:py-6">
-                <nav className="space-y-4 sm:space-y-6">
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">INTERIOR</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OUTDOOR</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">FURNITURE</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">DECOR</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">LIFESTYLE</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OTHER</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">ABOUT</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">SHIPPING</a>
-                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">CONTACT</a>
+              <div className="flex-1 px-6 py-6">
+                <nav className="space-y-5">
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">INTERIOR</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">OUTDOOR</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">FURNITURE</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">DECOR</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">LIFESTYLE</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">OTHER</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">ABOUT</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">SHIPPING</a>
+                  <a href="#" className="block text-base font-normal text-gray-800 py-2">CONTACT</a>
                 </nav>
               </div>
 
-              {/* Footer */}
-              <div className="px-3 py-4 sm:px-4 sm:py-6 border-t border-gray-200">
-                <div className="flex justify-between items-center text-xs text-gray-500">
-                  <span>EUROS | ENGLISH</span>
+              {/* Footer - Updated to match the design */}
+              <div className="px-6 py-6 border-t border-gray-200 mt-auto">
+                <div className="mb-4">
+                  <p className="text-sm font-medium text-gray-800">TERMS | PRIVACY</p>
                 </div>
-                <p className="text-xs text-gray-400 mt-2">© COPYRIGHT 2021 DECORIS ARTFUL UK. SOUTH KENSINGTON.</p>
+                <p className="text-xs text-gray-500">© COPYRIGHT 2023 BECOMS LIMITED. ALL RIGHTS RESERVED.</p>
               </div>
             </div>
           )}
 
-          {/* Left Side Icons */}
-          <div className="absolute top-20 left-2 p-0 z-20 sm:top-24 sm:left-3 md:top-32 md:left-4 lg:top-1/2 lg:-translate-y-1/2 lg:left-12">
-            <h3 className="text-black text-xs font-light mb-4 ml-2 tracking-wider sm:text-sm lg:mb-120">Black Gold Glass Sculpture</h3>
-            <div className="space-y-3 sm:space-y-4">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                <img src="/assets/share.svg" alt="Share" width={12} height={12} className="sm:w-3.5 sm:h-3.5 mr-12 mb-220" />
+          {/* Left Side Icons - Updated to hide on mobile */}
+          <div className="hidden lg:block absolute top-1/2 left-12 -translate-y-1/2 z-20">
+            <h3 className="text-black text-xs font-light mb-8 ml-2 tracking-wider">Black Gold Glass Sculpture</h3>
+            <div className="space-y-4">
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
+                <img src="/assets/share.svg" alt="Share" width={14} height={14} />
               </div>
-              <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                <img src="/assets/square.svg" alt="View" width={14} height={14} className="sm:w-4 sm:h-4 mr-12 mb-40" />
+              <div className="w-8 h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
+                <img src="/assets/square.svg" alt="View" width={16} height={16} />
               </div>
             </div>
           </div>
@@ -279,7 +264,6 @@ export default function Home() {
             {/* Product Image */}
             <div className="w-full lg:w-3/5 flex items-center justify-center px-3 py-4 sm:px-6 sm:py-8 lg:pt-12 lg:pl-16">
               <div className="relative w-full max-w-5xl">
-               
                 <div>
                   <Image
                     src={mainImage}
@@ -290,24 +274,23 @@ export default function Home() {
                   />
                 </div>
  
-              <div className="flex space-x-1.5 sm:space-x-2 mt-3 sm:mt-4 justify-center overflow-x-auto pb-2">
-                {products.map((product) => (
-                  <div
-                    key={product.id}
-                    className="w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 cursor-pointer transition-all duration-200 overflow-hidden flex-shrink-0"
-                    onClick={() => {
-                      setMainImage(product.image);
-                    }}
-                  >
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={96}
-                      height={64}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
+                <div className="flex space-x-1.5 sm:space-x-2 mt-3 sm:mt-4 justify-center overflow-x-auto pb-2">
+                  {products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 cursor-pointer transition-all duration-200 overflow-hidden flex-shrink-0"
+                      onClick={() => {
+                        setMainImage(product.image);
+                      }}
+                    >
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        width={96}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   ))}
                 </div>
 

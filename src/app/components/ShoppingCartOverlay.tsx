@@ -57,7 +57,7 @@ const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdat
           </div>
           <div className="flex items-center space-x-2 sm:space-x-3">
             <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
-            <Image src="/assets/favourite.svg" alt="Favourites" width={16} height={16} className="opacity-60 sm:w-5 sm:h-5" />
+            <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60 sm:w-5 sm:h-5" />
             <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
           </div>
         </div>

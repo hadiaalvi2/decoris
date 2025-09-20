@@ -162,21 +162,38 @@ export default function Home() {
                           alt="Menu"
                           width={18}
                           height={18}
+                          className="w-4 h-auto"
                         />
                       </button>
                     </div>
                     <div className="flex items-center space-x-4">
-                      <Image src="/assets/profile.svg" alt="Profile" width={16} height={19} className="opacity-60" />
-                      <Image
-                        src="/assets/favourite.svg"
-                        alt="Favourites"
-                        width={9} 
-                        height={8} 
-                        className="opacity-60 cursor-pointer"
+                      <Image 
+                        src="/assets/profile.svg" 
+                        alt="Profile" 
+                        width={16} 
+                        height={19} 
+                        className="opacity-60 w-4 h-auto" 
+                      />
+                      <button
+                        className="p-1"
                         onClick={() => setIsWishlistOpen(!isWishlistOpen)}
-      />
+                      >
+                        <Image
+                          src="/assets/favourite.svg"
+                          alt="Favourites"
+                          width={14}
+                          height={16} 
+                          className="opacity-60 w-3.5 h-auto"
+                        />
+                      </button>
                 <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
-                  <Image src="/assets/BAG.svg" alt="Bag" width={17} height={19} className="opacity-60" />
+                  <Image 
+                    src="/assets/BAG.svg" 
+                    alt="Bag" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60 w-4 h-auto" 
+                  />
                   {totalItems > 0 && (
                     <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
                       {totalItems}
@@ -223,8 +240,8 @@ export default function Home() {
               <Image
                 src="/assets/favourite.svg"
                 alt="Favourites"
-                width={9}
-                height={8}
+                width={14}
+                height={16}
                 className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
               />
@@ -250,7 +267,7 @@ export default function Home() {
                     alt="Grid"
                     width={18}
                     height={18}
-                    className="opacity-100"
+                    className="opacity-100 w-4 h-auto"
                   />
                   <Image
                     src="/assets/Decoris P.svg"
@@ -261,9 +278,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60" />
-                  <Image src="/assets/favourite.svg" alt="Favourites" width={9} height={8} className="opacity-60" />
-                  <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60" />
+                  <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 w-3.5 h-auto" />
+                  <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60 w-3.5 h-auto" />
+                  <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 w-3.5 h-auto" />
                 </div>
               </div>
 
@@ -321,13 +338,13 @@ export default function Home() {
                   className="p-1"
                   onClick={() => addToWishlist(currentProduct)}
                 >
-                  <Image src="/assets/favourite.svg" alt="Add to Wishlist" width={9} height={8} className="opacity-60" />
+                  <Image src="/assets/favourite.svg" alt="Add to Wishlist" width={9} height={8} className="opacity-60 w-2.5 h-auto" />
                 </button>
                 <button className="p-1">
-                  <Image src="/assets/share.svg" alt="Share" width={16} height={16} className="opacity-60" />
+                  <Image src="/assets/share.svg" alt="Share" width={16} height={16} className="opacity-60 w-4 h-auto" />
                 </button>
                 <button className="p-1">
-                  <Image src="/assets/square.svg" alt="View" width={16} height={16} className="opacity-60" />
+                  <Image src="/assets/square.svg" alt="View" width={16} height={16} className="opacity-60 w-4 h-auto" />
                 </button>
               </div>
             </div>

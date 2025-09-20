@@ -190,13 +190,13 @@ export default function Home() {
             <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
               <Image src="/assets/profile.svg" alt="Profile" width={16} height={19} className="opacity-60 hover:opacity-100 transition-opacity sm:w-4 sm:h-5 lg:w-5 lg:h-6" />
               <Image
-  src="/assets/favourite.svg"
-  alt="Favourites"
-  width={9}
-  height={8}
-  className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-  onClick={() => setIsWishlistOpen(!isWishlistOpen)}
-/>
+                src="/assets/favourite.svg"
+                alt="Favourites"
+                width={22}
+                height={19}
+                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+                onClick={() => setIsWishlistOpen(!isWishlistOpen)}
+              />
               <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
                 <Image src="/assets/BAG.svg" alt="Bag" width={17} height={19} className="opacity-60 transition-opacity sm:w-4 sm:h-5 lg:w-5 lg:h-6" />
                 {totalItems > 0 && (
@@ -231,7 +231,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
-                 <Image src="/assets/favourite.svg" alt="Favourites" width={9} height={8} className="opacity-60" />
+                 <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60" />
                   <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
                 </div>
               </div>

@@ -9,6 +9,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-arial: Arial, Helvetica, sans-serif;
+  
+  /* Custom breakpoints for extra small screens */
+  --breakpoint-xs: 475px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,4 +23,76 @@
 
 body {
   font-family: var(--font-arial);
+}
+
+/* Custom responsive utilities */
+@media (max-width: 475px) {
+  .text-responsive {
+    font-size: 0.75rem;
+  }
+  
+  .padding-responsive {
+    padding: 0.5rem;
+  }
+  
+  .space-responsive > * + * {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (min-width: 475px) and (max-width: 640px) {
+  .text-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .padding-responsive {
+    padding: 0.75rem;
+  }
+  
+  .space-responsive > * + * {
+    margin-left: 0.75rem;
+  }
+}
+
+/* Smooth transitions for responsive changes */
+* {
+  transition: font-size 0.2s ease-in-out, padding 0.2s ease-in-out, margin 0.2s ease-in-out;
+}
+
+/* Ensure images are responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom scrollbar for overlays */
+.overlay-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overlay-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.overlay-scroll::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.overlay-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 768px) {
+  button, 
+  [role="button"],
+  .cursor-pointer {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

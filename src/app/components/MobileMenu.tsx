@@ -166,13 +166,15 @@ export default function Home() {
                         />
                       </button>
                     </div>
+                    {/* MOBILE HEADER ICONS - ALL EXACT SAME SIZE */}
                     <div className="flex items-center space-x-4">
                       <Image 
                         src="/assets/profile.svg" 
                         alt="Profile" 
-                        width={16} 
+                        width={17} 
                         height={19} 
-                        className="opacity-60 w-4 h-auto" 
+                        className="opacity-60" 
+                        style={{ width: '17px', height: '19px' }}
                       />
                       <button
                         className="p-1"
@@ -181,9 +183,10 @@ export default function Home() {
                         <Image
                           src="/assets/favourite.svg"
                           alt="Favourites"
-                          width={14}
-                          height={16} 
-                          className="opacity-60 w-3.5 h-auto"
+                          width={17}
+                          height={19} 
+                          className="opacity-60"
+                          style={{ width: '17px', height: '19px' }}
                         />
                       </button>
                 <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
@@ -192,7 +195,8 @@ export default function Home() {
                     alt="Bag" 
                     width={17} 
                     height={19} 
-                    className="opacity-60 w-4 h-auto" 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
                   />
                   {totalItems > 0 && (
                     <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
@@ -235,18 +239,34 @@ export default function Home() {
               <a href="#" className="text-gray-600 hover:underline">SHIPPING</a>
               <a href="#" className="text-gray-600 hover:underline">CONTACT</a>
             </div>
+            {/* DESKTOP ICONS - ALL EXACT SAME SIZE */}
             <div className="flex items-center space-x-6">
-              <Image src="/assets/profile.svg" alt="Profile" width={16} height={19} className="opacity-60 hover:opacity-100 transition-opacity" />
+              <Image 
+                src="/assets/profile.svg" 
+                alt="Profile" 
+                width={17} 
+                height={19} 
+                className="opacity-60 hover:opacity-100 transition-opacity" 
+                style={{ width: '17px', height: '19px' }}
+              />
               <Image
                 src="/assets/favourite.svg"
                 alt="Favourites"
-                width={14}
-                height={16}
+                width={17}
+                height={19}
                 className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+                style={{ width: '17px', height: '19px' }}
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
               />
               <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
-                <Image src="/assets/BAG.svg" alt="Bag" width={17} height={19} className="opacity-60 transition-opacity" />
+                <Image 
+                  src="/assets/BAG.svg" 
+                  alt="Bag" 
+                  width={17} 
+                  height={19} 
+                  className="opacity-60 transition-opacity" 
+                  style={{ width: '17px', height: '19px' }}
+                />
                 {totalItems > 0 && (
                   <span className="absolute -top-2 -right-2 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
                     {totalItems}
@@ -277,10 +297,32 @@ export default function Home() {
                     className="opacity-60"
                   />
                 </div>
+                {/* MOBILE MENU OVERLAY ICONS - ALL EXACT SAME SIZE */}
                 <div className="flex items-center space-x-4">
-                  <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 w-3.5 h-auto" />
-                  <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60 w-3.5 h-auto" />
-                  <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 w-3.5 h-auto" />
+                  <Image 
+                    src="/assets/profile.svg" 
+                    alt="Profile" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
+                  />
+                  <Image 
+                    src="/assets/favourite.svg" 
+                    alt="Favourites" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
+                  />
+                  <Image 
+                    src="/assets/BAG.svg" 
+                    alt="Bag" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
+                  />
                 </div>
               </div>
 

@@ -147,7 +147,7 @@ export default function Home() {
     <>
       <div className="min-h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/bg.jpg')" }}>
         <div className="relative z-10 w-full max-w-screen-2xl mx-auto">
-          {/* Navigation */}
+          {/* Navigation - UNIFIED FOR ALL SCREEN SIZES */}
           <nav className="flex items-center justify-between px-3 py-3 sm:px-4 sm:py-4 md:px-8 lg:px-16 lg:py-6">
             <div className="flex items-start space-x-2 lg:space-x-3">
               <button className="lg:hidden mt-2 sm:mt-4" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -176,6 +176,7 @@ export default function Home() {
                 />
               </div>
             </div>
+            
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-10 text-xs font-medium tracking-widest uppercase">
               <a href="#" className="text-gray-600 hover:underline">INTERIOR</a>
               <a href="#" className="text-gray-600 hover:underline">OUTDOOR</a>
@@ -187,18 +188,40 @@ export default function Home() {
               <a href="#" className="text-gray-600 hover:underline">SHIPPING</a>
               <a href="#" className="text-gray-600 hover:underline">CONTACT</a>
             </div>
+            
+            {/* FIXED ICON SECTION - ALL SAME SIZE */}
             <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
-              <Image src="/assets/profile.svg" alt="Profile" width={16} height={19} className="opacity-60 hover:opacity-100 transition-opacity sm:w-4 sm:h-5 lg:w-5 lg:h-6" />
+              {/* Profile Icon - EXACT SAME SIZE AS BAG */}
+              <Image 
+                src="/assets/profile.svg" 
+                alt="Profile" 
+                width={17} 
+                height={19} 
+                className="opacity-60 hover:opacity-100 transition-opacity" 
+                style={{ width: '17px', height: '19px' }}
+              />
+              
+              {/* Favorite Icon - EXACT SAME SIZE AS BAG */}
               <Image
                 src="/assets/favourite.svg"
                 alt="Favourites"
-                width={22}
+                width={17}
                 height={19}
                 className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+                style={{ width: '17px', height: '19px' }}
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
               />
+              
+              {/* Cart Icon - REFERENCE SIZE */}
               <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
-                <Image src="/assets/BAG.svg" alt="Bag" width={17} height={19} className="opacity-60 transition-opacity sm:w-4 sm:h-5 lg:w-5 lg:h-6" />
+                <Image 
+                  src="/assets/BAG.svg" 
+                  alt="Bag" 
+                  width={17} 
+                  height={19} 
+                  className="opacity-60 transition-opacity" 
+                  style={{ width: '17px', height: '19px' }}
+                />
                 {totalItems > 0 && (
                   <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-black text-white rounded-full w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center text-xs">
                     {totalItems}
@@ -229,10 +252,32 @@ export default function Home() {
                     className="opacity-60 sm:w-20 sm:h-4"
                   />
                 </div>
+                {/* MOBILE MENU ICONS - ALL SAME SIZE */}
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <Image src="/assets/profile.svg" alt="Profile" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
-                 <Image src="/assets/favourite.svg" alt="Favourites" width={14} height={16} className="opacity-60" />
-                  <Image src="/assets/BAG.svg" alt="Bag" width={14} height={16} className="opacity-60 sm:w-4 sm:h-5" />
+                  <Image 
+                    src="/assets/profile.svg" 
+                    alt="Profile" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
+                  />
+                  <Image 
+                    src="/assets/favourite.svg" 
+                    alt="Favourites" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
+                  />
+                  <Image 
+                    src="/assets/BAG.svg" 
+                    alt="Bag" 
+                    width={17} 
+                    height={19} 
+                    className="opacity-60" 
+                    style={{ width: '17px', height: '19px' }}
+                  />
                 </div>
               </div>
 

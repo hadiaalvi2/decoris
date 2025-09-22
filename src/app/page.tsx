@@ -189,7 +189,7 @@ export default function Home() {
               <a href="#" className="text-gray-600 hover:underline">CONTACT</a>
             </div>
             
-            {/* FIXED ICON SECTION - ALL SAME SIZE */}
+            {/* FIXED ICON SECTION - ALL EXACT SAME SIZE */}
             <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
               {/* Profile Icon - EXACT SAME SIZE AS BAG */}
               <Image 
@@ -201,25 +201,30 @@ export default function Home() {
                 style={{ width: '17px', height: '19px' }}
               />
               
-              {/* Favorite Icon - EXACT SAME SIZE AS BAG */}
-              <Image
-                src="/assets/favourite.svg"
-                alt="Favourites"
-                width={17}
-                height={19}
+              {/* Favorite Icon - SLIGHTLY LARGER SIZE FOR BETTER VISIBILITY */}
+              <button
                 className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-                style={{ width: '17px', height: '19px' }}
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
-              />
+              >
+                <Image
+                  src="/assets/favourite.svg"
+                  alt="Favourites"
+                  width={19}
+                  height={21}
+                  style={{ width: '19px', height: '21px' }}
+                />
+              </button>
               
-              {/* Cart Icon - REFERENCE SIZE */}
-              <div className="relative cursor-pointer" onClick={() => setIsCartOpen(!isCartOpen)}>
+              {/* Cart Icon - REFERENCE SIZE WITH BUTTON WRAPPER */}
+              <button 
+                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer" 
+                onClick={() => setIsCartOpen(!isCartOpen)}
+              >
                 <Image 
                   src="/assets/BAG.svg" 
                   alt="Bag" 
                   width={17} 
                   height={19} 
-                  className="opacity-60 transition-opacity" 
                   style={{ width: '17px', height: '19px' }}
                 />
                 {totalItems > 0 && (
@@ -227,7 +232,7 @@ export default function Home() {
                     {totalItems}
                   </span>
                 )}
-              </div>
+              </button>
             </div>
           </nav>
 
@@ -252,7 +257,7 @@ export default function Home() {
                     className="opacity-60 sm:w-20 sm:h-4"
                   />
                 </div>
-                {/* MOBILE MENU ICONS - ALL SAME SIZE */}
+                {/* MOBILE MENU ICONS - ALL EXACT SAME SIZE */}
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <Image 
                     src="/assets/profile.svg" 
@@ -262,22 +267,36 @@ export default function Home() {
                     className="opacity-60" 
                     style={{ width: '17px', height: '19px' }}
                   />
-                  <Image 
-                    src="/assets/favourite.svg" 
-                    alt="Favourites" 
-                    width={17} 
-                    height={19} 
-                    className="opacity-60" 
-                    style={{ width: '17px', height: '19px' }}
-                  />
-                  <Image 
-                    src="/assets/BAG.svg" 
-                    alt="Bag" 
-                    width={17} 
-                    height={19} 
-                    className="opacity-60" 
-                    style={{ width: '17px', height: '19px' }}
-                  />
+                  <button
+                    className="opacity-60"
+                    onClick={() => {
+                      setIsWishlistOpen(!isWishlistOpen);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <Image 
+                      src="/assets/favourite.svg" 
+                      alt="Favourites" 
+                      width={19} 
+                      height={21} 
+                      style={{ width: '19px', height: '21px' }}
+                    />
+                  </button>
+                  <button
+                    className="opacity-60"
+                    onClick={() => {
+                      setIsCartOpen(!isCartOpen);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <Image 
+                      src="/assets/BAG.svg" 
+                      alt="Bag" 
+                      width={17} 
+                      height={19} 
+                      style={{ width: '17px', height: '19px' }}
+                    />
+                  </button>
                 </div>
               </div>
 

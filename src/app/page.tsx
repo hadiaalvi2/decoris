@@ -147,7 +147,7 @@ export default function Home() {
     <>
       <div className="min-h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/bg.jpg')" }}>
         <div className="relative z-10 w-full max-w-screen-2xl mx-auto">
-          {/* Navigation - UNIFIED FOR ALL SCREEN SIZES */}
+          {/* Navigation*/}
           <nav className="flex items-center justify-between px-3 py-3 sm:px-4 sm:py-4 md:px-8 lg:px-16 lg:py-6">
             <div className="flex items-start space-x-2 lg:space-x-3">
               <button className="lg:hidden mt-2 sm:mt-4" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -189,9 +189,9 @@ export default function Home() {
               <a href="#" className="text-gray-600 hover:underline">CONTACT</a>
             </div>
             
-            {/* FIXED ICON SECTION - ALL EXACT SAME SIZE */}
+            {/* FIXED ICON SECTION*/}
             <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
-              {/* Profile Icon - EXACT SAME SIZE AS BAG */}
+              {/* Profile Icon */}
               <Image 
                 src="/assets/profile.svg" 
                 alt="Profile" 
@@ -201,7 +201,7 @@ export default function Home() {
                 style={{ width: '17px', height: '19px' }}
               />
               
-              {/* Favorite Icon - SLIGHTLY LARGER SIZE FOR BETTER VISIBILITY */}
+              {/* Favorite Icon*/}
               <button
                 className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
@@ -215,7 +215,7 @@ export default function Home() {
                 />
               </button>
               
-              {/* Cart Icon - REFERENCE SIZE WITH BUTTON WRAPPER */}
+              {/* Cart Icon*/}
               <button 
                 className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer" 
                 onClick={() => setIsCartOpen(!isCartOpen)}
@@ -257,7 +257,7 @@ export default function Home() {
                     className="opacity-60 sm:w-20 sm:h-4"
                   />
                 </div>
-                {/* MOBILE MENU ICONS - ALL EXACT SAME SIZE */}
+                {/* MOBILE MENU ICONS*/}
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <Image 
                     src="/assets/profile.svg" 

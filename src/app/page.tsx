@@ -227,12 +227,12 @@ export default function Home() {
                 alt="Profile" 
                 width={17} 
                 height={19} 
-                className="opacity-60 hover:opacity-100 transition-opacity" 
+                className="opacity-60 hover:opacity-100 transition-opacity lg:opacity-60" 
                 style={{ width: '17px', height: '19px' }}
               />
               
               <button
-                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer lg:opacity-60"
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
               >
                 <Image
@@ -245,7 +245,7 @@ export default function Home() {
               </button>
               
               <button 
-                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer" 
+                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer lg:opacity-60" 
                 onClick={() => setIsCartOpen(!isCartOpen)}
               >
                 <Image 
@@ -256,7 +256,7 @@ export default function Home() {
                   style={{ width: '17px', height: '19px' }}
                 />
                 {totalItems > 0 && (
-                  <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs font-medium leading-none" style={{ fontSize: '10px' }}>
+                  <span className="absolute -top-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs font-medium leading-none" style={{ fontSize: '10px' }}>
                     {totalItems}
                   </span>
                 )}
@@ -264,20 +264,26 @@ export default function Home() {
             </div>
           </nav>
 
-          {/* Mobile Product Title and Actions - FIXED COLOR */}
-          <div className="lg:hidden px-4 py-3 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <h3 className="text-black text-xs font-normal tracking-wider mt-12 ml-30">Black Gold Glass Sculpture</h3>
+          {/* Mobile Product Title and Actions - UPDATED */}
+          <div className="lg:hidden flex items-center justify-between px-4 py-6">
+              {/* Product Title */}
+              <h3 className= "text-black text-xs font-normal tracking-wider whitespace-nowrap ml-30">
+                Black Gold Glass Sculpture
+              </h3>
+
+              {/* Icons */}
+              <div className="flex items-center gap-4">
+                <button 
+                  className="hover:bg-gray-100 transition-colors rounded-full p-2"
+                  onClick={() => addToWishlist(currentProduct)}
+                >
+                  <Image src="/page/Group 51575.svg" alt="Wishlist Icon" width={60} height={20} />
+                </button>
+
+                
+              </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <button 
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                onClick={() => addToWishlist(currentProduct)}
-              >
-                <Image src="/page/Group 51575.svg" alt="Icons" width={60} height={20} />
-              </button>
-            </div>
-          </div>
+
 
           {/* Mobile Menu Overlay */}
           {isMobileMenuOpen && (
@@ -387,7 +393,7 @@ export default function Home() {
             {/* Product Image */}
             <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
               <div className="relative w-full max-w-5xl">
-                <div>
+                <div className="px-4 lg:px-0">
                   <Image
                     src={mainImage}
                     alt="Black Gold Glass Sculpture"
@@ -397,25 +403,32 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Thumbnails*/}
-                <div className="flex space-x-1 lg:space-x-2 mt-2 lg:mt-4 justify-center overflow-x-hidden pb-2 px-3 lg:px-0">
-                  {products.map((product) => (
-                    <div
-                      key={product.id}
-                      className="w-12 h-8 lg:w-24 lg:h-16 cursor-pointer transition-all duration-200 overflow-hidden flex-shrink-0"
-                      onClick={() => {
-                        setMainImage(product.image);
-                      }}
-                    >
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        width={96}
-                        height={64}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
+                {/* Thumbnails - UPDATED FOR MOBILE */}
+                <div className="px-4 lg:px-0 mt-4 lg:mt-4">
+                  <div className="grid grid-cols-8 gap-1 lg:flex lg:space-x-2 lg:justify-center">
+                    {products.map((product) => (
+                      <div
+                        key={product.id}
+                        className="aspect-[4/3] cursor-pointer transition-all duration-200 overflow-hidden lg:w-24 lg:h-16 lg:flex-shrink-0"
+                        onClick={() => {
+                          setMainImage(product.image);
+                        }}
+                      >
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          width={96}
+                          height={64}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Mobile Product Title Under Thumbnails - CENTERED */}
+                  <div className="lg:hidden text-center mt-6">
+                    <h3 className="text-black text-sm font-normal tracking-wider">Black Gold Glass Sculpture</h3>
+                  </div>
                 </div>
 
                 {/*Desktop only */}
@@ -431,13 +444,13 @@ export default function Home() {
 
             {/* Product Details*/}
             <div className="w-full lg:w-2/5 px-4 py-6 lg:px-8 lg:py-8 lg:pr-20 flex flex-col justify-center">
-              <div className="max-w-lg mx-auto w-full">
+              <div className="max-w-lg mx-auto w-full text-center lg:text-left">
                 {/* Desktop product title - HIDDEN ON MOBILE */}
                 <div className="hidden lg:block">
                   <p className="text-xs text-black mb-1 tracking-widest">Black Gold Glass Sculpture</p>
                 </div>
                 
-                <p className="text-xs text-gray-600 mb-4 tracking-widest">78621091</p>
+                <p className="text-xs text-gray-600 mb-6 tracking-widest">78621091</p>
 
                 <div className="mb-6">
                   <p className="text-gray-600 leading-relaxed text-xs mb-4 tracking-wide">
@@ -462,7 +475,7 @@ export default function Home() {
                   <p className="text-xs text-gray-600 tracking-widest">GBP</p>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-8">
                   <p className="text-xs text-gray-600 mb-4 tracking-wide">
                     Estimated Delivery Time: 6-8 weeks (on order confirmation)
                   </p>

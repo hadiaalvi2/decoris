@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 type CartItem = {
-  id: string | number;
+  id: string;
   name: string;
   image: string;
   price: number;
@@ -14,8 +14,8 @@ type ShoppingCartOverlayProps = {
   isOpen: boolean;
   cartItems: CartItem[];
   onClose: () => void;
-  onRemoveItem: (id: string | number) => void;
-  onUpdateQuantity: (id: string | number, quantity: number) => void;
+  onRemoveItem: (id: string) => void;
+  onUpdateQuantity: (id: string, quantity: number) => void;
 };
 
 const ShoppingCartOverlay = ({ isOpen, cartItems, onClose, onRemoveItem, onUpdateQuantity }: ShoppingCartOverlayProps) => {

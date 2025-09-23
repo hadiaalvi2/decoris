@@ -369,10 +369,10 @@ export default function Home() {
             <h3 className="text-black text-xs font-light mb-4 ml-2 tracking-wider sm:text-sm lg:mb-120">Black Gold Glass Sculpture</h3>
             <div className="space-y-3 sm:space-y-4">
               <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                <img src="/assets/share.svg" alt="Share" width={12} height={12} className="sm:w-3.5 sm:h-3.5 mr-12 mb-220" />
+                <Image src="/assets/share.svg" alt="Share" width={12} height={12} className="sm:w-3.5 sm:h-3.5 mr-12 mb-220" />
               </div>
               <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
-                <img src="/assets/square.svg" alt="View" width={14} height={14} className="sm:w-4 sm:h-4 mr-9 mb-40" />
+                <Image src="/assets/square.svg" alt="View" width={14} height={14} className="sm:w-4 sm:h-4 mr-9 mb-40" />
               </div>
             </div>
           </div>

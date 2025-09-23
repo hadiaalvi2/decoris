@@ -256,7 +256,7 @@ export default function Home() {
                   style={{ width: '17px', height: '19px' }}
                 />
                 {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-black text-white rounded-full w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center text-xs">
+                  <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs font-medium leading-none" style={{ fontSize: '10px' }}>
                     {totalItems}
                   </span>
                 )}
@@ -324,7 +324,7 @@ export default function Home() {
                     />
                   </button>
                   <button
-                    className="opacity-60"
+                    className="relative opacity-60"
                     onClick={() => {
                       setIsCartOpen(!isCartOpen);
                       setIsMobileMenuOpen(false);
@@ -337,6 +337,11 @@ export default function Home() {
                       height={19} 
                       style={{ width: '17px', height: '19px' }}
                     />
+                    {totalItems > 0 && (
+                      <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs font-medium leading-none" style={{ fontSize: '10px' }}>
+                        {totalItems}
+                      </span>
+                    )}
                   </button>
                 </div>
               </div>

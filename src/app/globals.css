@@ -28,6 +28,19 @@ body {
   line-height: 1.5;
 }
 
+/* Fix for logo color issues */
+.filter-none {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Ensure SVG logos maintain their original colors */
+img[src*="Decoris"],
+img[alt*="Decoris"] {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
 /* Enhanced responsive utilities */
 @media (max-width: 374px) {
   .text-responsive {
@@ -145,4 +158,3 @@ img {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-

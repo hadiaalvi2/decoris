@@ -403,27 +403,29 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Thumbnails - UPDATED FOR MOBILE */}
+                {/* Thumbnails*/}
                 <div className="px-4 lg:px-0 mt-4 lg:mt-4">
-                  <div className="grid grid-cols-8 gap-1 lg:flex lg:space-x-2 lg:justify-center">
-                    {products.map((product) => (
-                      <div
-                        key={product.id}
-                        className="aspect-[4/3] cursor-pointer transition-all duration-200 overflow-hidden lg:w-24 lg:h-16 lg:flex-shrink-0"
-                        onClick={() => {
-                          setMainImage(product.image);
-                        }}
-                      >
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          width={96}
-                          height={64}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
+  <div className="grid grid-cols-8 gap-2 lg:flex lg:space-x-4 lg:justify-center">
+    {products.map((product) => (
+      <div
+        key={product.id}
+        className="aspect-[4/3] cursor-pointer transition-all duration-200 overflow-hidden lg:w-24 lg:h-16 lg:flex-shrink-0"
+        onClick={() => {
+          setMainImage(product.image);
+        }}
+      >
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={96}
+          height={64}
+          className="w-full h-full object-cover "
+        />
+      </div>
+    ))}
+  </div>
+
+
                   
                   {/* Mobile Product Title Under Thumbnails - CENTERED */}
                   <div className="lg:hidden text-center mt-6">

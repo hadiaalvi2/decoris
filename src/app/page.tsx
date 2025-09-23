@@ -264,7 +264,7 @@ export default function Home() {
             </div>
           </nav>
 
-          {/* Mobile*/}
+          {/* Mobile Product Title and Actions - FIXED COLOR */}
           <div className="lg:hidden px-4 py-3 flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <h3 className="text-black text-xs font-normal tracking-wider mt-12 ml-30">Black Gold Glass Sculpture</h3>
@@ -429,7 +429,7 @@ export default function Home() {
               <div className="max-w-lg mx-auto w-full">
                 {/* Desktop product title - HIDDEN ON MOBILE */}
                 <div className="hidden lg:block">
-                  <p className="text-xs text-black-600 mb-1 tracking-widest">Black Gold Glass Sculpture</p>
+                  <p className="text-xs text-black mb-1 tracking-widest">Black Gold Glass Sculpture</p>
                 </div>
                 
                 <p className="text-xs text-gray-600 mb-4 tracking-widest">78621091</p>

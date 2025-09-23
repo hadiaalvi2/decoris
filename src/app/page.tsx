@@ -277,7 +277,7 @@ export default function Home() {
                   className="hover:bg-gray-100 transition-colors rounded-full p-2"
                   onClick={() => addToWishlist(currentProduct)}
                 >
-                  <Image src="/page/Group 51575.svg" alt="Wishlist Icon" width={60} height={20} />
+                  <Image src="/page/Group 51575.svg" alt="Wishlist Icon" width={80} height={20} />
                 </button>
 
                 

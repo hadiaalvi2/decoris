@@ -267,7 +267,7 @@ export default function Home() {
           {/* Mobile Product Title and Actions - UPDATED */}
           <div className="lg:hidden flex items-center justify-between px-4 py-6">
               {/* Product Title */}
-              <h3 className= "text-black text-xs font-normal tracking-wider whitespace-nowrap ml-30">
+              <h3 className= "text-black text-xs font-normal tracking-wider whitespace-nowrap ml-25">
                 Black Gold Glass Sculpture
               </h3>
 

@@ -276,7 +276,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               
               <button className=" transition-colors rounded-full p-1 ml-10">
-                <Image src="/page/Group 51575.svg" alt="Share Icon" width={120} height={80} />
+                <Image src="/page/Group 51575.svg" alt="Share Icon" width={200} height={180} />
               </button>
             </div>
           </div>
@@ -452,7 +452,7 @@ export default function Home() {
     </div>
 
                 {/* Thumbnails */}
-                <div className="px-0 lg:px-0 mt-4 lg:mt-4"> 
+                <div className="px-0 lg:px-0 mt-1 lg:mt-1"> 
   <div className="grid grid-cols-8 gap-2 lg:flex lg:space-x-2 lg:justify-center">
     {products.map((product) => (
       <div
@@ -493,6 +493,7 @@ export default function Home() {
                 <div className="hidden lg:block">
                   <p className="text-xs text-black mb-1 tracking-widest">Black Gold Glass Sculpture</p>
                 </div>
+                <p className="text-xs text-black mb-4 tracking-widest">Black Gold Glass Sculpture</p>
 
                 <p className="text-xs text-gray-600 mb-4 tracking-widest">78621091</p>
 

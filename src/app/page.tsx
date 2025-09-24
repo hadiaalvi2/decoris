@@ -269,13 +269,14 @@ export default function Home() {
           {/* Mobile Product Title and Actions - updated positioning and layout */}
           <div className="lg:hidden flex items-center justify-between px-6 py-2">
             {/* Product Title */}
-            <h3 className="text-black text-xs font-normal tracking-wider ml-30">Black Gold Glass Sculpture</h3>
+            <h3 className="text-black text-xs font-normal tracking-wider ml-20 whitespace-nowrap">Black Gold Glass Sculpture</h3>
+
 
             {/* Icons */}
             <div className="flex items-center gap-3">
               
               <button className=" transition-colors rounded-full p-1">
-                <Image src="/page/Group 51575.svg" alt="Share Icon" width={80} height={80} />
+                <Image src="/page/Group 51575.svg" alt="Share Icon" width={60} height={80} />
               </button>
             </div>
           </div>
@@ -437,40 +438,41 @@ export default function Home() {
           {/* Main Content */}
           <div className="flex flex-col lg:flex-row min-h-screen pt-2 lg:pt-8">
             {/* Product Image - adjusted mobile spacing and sizing */}
-            <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
-              <div className="relative w-full max-w-5xl">
-                <div className="px-6 lg:px-0">
-                  <Image
-                    src={mainImage || "/placeholder.svg"}
-                    alt="Black Gold Glass Sculpture"
-                    width={800}
-                    height={500}
-                    className="w-full h-72 lg:h-[500px] object-cover rounded-sm"
-                  />
-                </div>
+           <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
+  <div className="relative w-full max-w-5xl">
+    <div className="px-0 lg:px-0"> {/* removed side padding */}
+      <Image
+        src={mainImage || "/placeholder.svg"}
+        alt="Black Gold Glass Sculpture"
+        width={1920}
+        height={1080}
+        className="w-full h-auto object-contain"
+        priority
+      />
+    </div>
 
-                {/* Thumbnails - updated mobile grid layout and spacing */}
-                <div className="px-6 lg:px-0 mt-4 lg:mt-4">
-                  <div className="grid grid-cols-8 gap-2 lg:flex lg:space-x-2 lg:justify-center">
-                    {products.map((product) => (
-                      <div
-                        key={product.id}
-                        className="aspect-square cursor-pointer transition-all duration-200 overflow-hidden rounded-sm lg:w-24 lg:h-16 lg:aspect-[4/3] lg:flex-shrink-0"
-                        onClick={() => {
-                          setMainImage(product.image)
-                        }}
-                      >
-                        <Image
-                          src={product.image || "/placeholder.svg"}
-                          alt={product.name}
-                          width={96}
-                          height={64}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {/* Thumbnails */}
+                <div className="px-0 lg:px-0 mt-4 lg:mt-4"> 
+  <div className="grid grid-cols-8 gap-2 lg:flex lg:space-x-2 lg:justify-center">
+    {products.map((product) => (
+      <div
+        key={product.id}
+        className="aspect-square cursor-pointer transition-all duration-200 overflow-hidden lg:w-24 lg:h-16 lg:aspect-[4/3] lg:flex-shrink-3"
+        onClick={() => {
+          setMainImage(product.image)
+        }}
+      >
+        <Image
+          src={product.image || "/placeholder.svg"}
+          alt={product.name}
+          width={96}
+          height={64}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
                 {/*Desktop only */}
                 <div className="hidden lg:block">

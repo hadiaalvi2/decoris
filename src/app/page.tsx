@@ -276,7 +276,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               
               <button className=" transition-colors rounded-full p-1 ml-10">
-                <Image src="/page/Group 51575.svg" alt="Share Icon" width={80} height={80} />
+                <Image src="/page/Group 51575.svg" alt="Share Icon" width={120} height={80} />
               </button>
             </div>
           </div>

@@ -197,9 +197,16 @@ export default function Home() {
             </div>
 
             {/* Mobile logo */}
-            <div className="lg:hidden">
-              <Image src="/assets/Decoris P.svg" alt="Decoris Logo" width={110} height={18} className="opacity-100" />
-            </div>
+            <div className="lg:hidden flex justify-center items-center my-4">
+                <Image
+                  src="/assets/Decoris P.svg"
+                  alt="Decoris Logo"
+                  width={110}
+                  height={18}
+                  className="opacity-100"
+                />
+              </div>
+
 
             {/* Desktop navigation menu */}
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-10 text-xs font-medium tracking-widest uppercase">
@@ -233,53 +240,52 @@ export default function Home() {
             </div>
 
             {/* Right side icons - adjusted spacing for mobile */}
-            <div className="flex items-center space-x-2 lg:space-x-6">
-              <Image
-                src="/assets/profile.svg"
-                alt="Profile"
-                width={16}
-                height={18}
-                className="opacity-60 hover:opacity-100 transition-opacity lg:opacity-60"
-              />
+     <div className="flex items-center gap-2 text-purple-700">
+      <Image
+        src="/assets/profile.svg"
+        alt="Profile"
+        width={18}
+        height={20}
+        className="opacity-60 hover:opacity-100 transition-opacity"
+      />
 
-              <button
-                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer lg:opacity-60"
-                onClick={() => setIsWishlistOpen(!isWishlistOpen)}
-              >
-                <Image src="/assets/favourite.svg" alt="Favourites" width={18} height={20} />
-              </button>
+      <button
+        className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+        onClick={() => setIsWishlistOpen(!isWishlistOpen)}
+      >
+        <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={20} />
+      </button>
 
-              <button
-                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer lg:opacity-60"
-                onClick={() => setIsCartOpen(!isCartOpen)}
-              >
-                <Image src="/assets/BAG.svg" alt="Bag" width={16} height={18} />
-                {totalItems > 0 && (
-                  <span
-                    className="absolute -top-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs font-medium leading-none"
-                    style={{ fontSize: "10px" }}
-                  >
-                    {totalItems}
-                  </span>
-                )}
-              </button>
-            </div>
+      <button
+        className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+        onClick={() => setIsCartOpen(!isCartOpen)}
+      >
+        <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
+      </button>
+    </div>
           </nav>
 
-          {/* Mobile Product Title and Actions - updated positioning and layout */}
-          <div className="lg:hidden flex items-center justify-between px-6 py-2">
-            {/* Product Title */}
-            <h3 className="text-black text-xs font-normal tracking-wider ml-20 whitespace-nowrap">Black Gold Glass Sculpture</h3>
+          {/* Mobile Product Title and Actions*/}
+      <div className="lg:hidden flex items-center justify-between px-6 py-0">
+  {/* Product Title */}
+<h3 className="text-black text-[10px] font-normal tracking-wider leading-[0.8rem] -my-5 ml-20 whitespace-nowrap">
+  Black Gold Glass Sculpture
+</h3>
 
 
-            {/* Icons */}
-            <div className="flex items-center gap-3">
-              
-              <button className=" transition-colors rounded-full p-1 ml-10">
-                <Image src="/page/Group 51575.svg" alt="Share Icon" width={200} height={180} />
-              </button>
-            </div>
-          </div>
+
+  {/* Icons */}
+  <div className="flex items-center gap-3">
+    <div className="relative w-20 h-20"> 
+      <Image
+        src="/page/Group 51575.svg"
+        alt="Share Icon"
+        fill
+        className="object-contain"
+      />
+    </div>
+  </div>
+</div>
 
           {/* Mobile Menu Overlay */}
           {isMobileMenuOpen && (
@@ -307,11 +313,11 @@ export default function Home() {
                     alt="Profile"
                     width={20}
                     height={20}
-                    className="opacity-60 flex-shrink-0"
+                    className="opacity-60 flex-shrink-0 ml-2"
                   />
 
                   <button
-                    className="opacity-60 flex-shrink-0"
+                    className="opacity-60 flex-shrink-0 ml-2"
                     onClick={() => {
                       setIsWishlistOpen(!isWishlistOpen)
                       setIsMobileMenuOpen(false)
@@ -321,7 +327,7 @@ export default function Home() {
                   </button>
 
                   <button
-                    className="relative opacity-60 flex-shrink-0"
+                    className="relative opacity-60 flex-shrink-0 ml-2"
                     onClick={() => {
                       setIsCartOpen(!isCartOpen)
                       setIsMobileMenuOpen(false)
@@ -453,7 +459,7 @@ export default function Home() {
 
                 {/* Thumbnails */}
                 <div className="px-0 lg:px-0 mt-1 lg:mt-1"> 
-  <div className="grid grid-cols-8 gap-2 lg:flex lg:space-x-2 lg:justify-center">
+  <div className="grid grid-cols-8 gap-1 lg:flex lg:space-x-2 lg:justify-center">
     {products.map((product) => (
       <div
         key={product.id}
@@ -491,7 +497,7 @@ export default function Home() {
               <div className="max-w-lg mx-auto w-full text-center lg:text-left">
                 {/* Desktop product title - HIDDEN ON MOBILE */}
                 <div className="hidden lg:block">
-                  <p className="text-xs text-black mb-1 tracking-widest">Black Gold Glass Sculpture</p>
+                  {/* <p className="text-xs text-black mb-1 tracking-widest">Black Gold Glass Sculpture</p> */}
                 </div>
                 <p className="text-xs text-black mb-4 tracking-widest">Black Gold Glass Sculpture</p>
 

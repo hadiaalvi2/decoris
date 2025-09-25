@@ -197,15 +197,16 @@ export default function Home() {
             </div>
 
             {/* Mobile logo */}
-            <div className="lg:hidden flex justify-center items-center my-4">
-                <Image
-                  src="/assets/Decoris P.svg"
-                  alt="Decoris Logo"
-                  width={110}
-                  height={18}
-                  className="opacity-100"
-                />
-              </div>
+            <div className="lg:hidden flex justify-center">
+  <Image
+    src="/assets/Decoris P.svg"
+    alt="Decoris Logo"
+    width={110}
+    height={18}
+    className="opacity-100"
+  />
+</div>
+
 
 
             {/* Desktop navigation menu */}
@@ -504,7 +505,7 @@ export default function Home() {
                 <p className="text-xs text-gray-600 mb-4 tracking-widest">78621091</p>
 
                 <div className="mb-4">
-                  <p className="text-gray-600 leading-relaxed text-xs mb-3 tracking-wide">
+                  <p className="text-gray-600 leading-relaxed text-[10px] mb-3 tracking-wide">
                     Upon entering this dazzling estate through the porte-cochere with incredible blends of steel, wood,
                     and stone, your senses are delighted by the combination of breathtaking panoramic views,
                     unparalleled privacy, perfect ski access, and the precise sophistication of the construction and
@@ -513,20 +514,20 @@ export default function Home() {
                     frames the surrounding landscapes while providing multiple four seasons of outdoor lounges complete
                     with resort-style amenities...
                   </p>
-                  <p className="text-xs text-gray-600 tracking-wide">
+                  <p className="text-[10px] text-gray-600 tracking-wide mt-7">
                     Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
                   </p>
                 </div>
 
                 <div className="mb-4">
-                  <div className="text-lg font-semibold mb-1 text-gray-800 tracking-wide">
-                    £1,500.00 <span className="text-xs text-gray-600 ml-2">Including VAT</span>
+                  <div className="text-[10px] font-light mb-1 text-gray-800 tracking-wide mt-2">
+                    £1,500.00 
                   </div>
-                  <p className="text-xs text-gray-600 tracking-widest">GBP</p>
+                  <p className="text-[10px] text-gray-600 tracking-widest italic mt-2">Including VAT</p>
                 </div>
 
                 <div className="mb-6">
-                  <p className="text-xs text-gray-600 mb-3 tracking-wide">
+                  <p className="text-[10px] italic text-gray-500 mb-3 tracking-wide">
                     Estimated Delivery Time: 6-8 weeks (on order confirmation)
                   </p>
                 </div>
@@ -539,13 +540,14 @@ export default function Home() {
                 </button>
 
                 {/* Mobile artisan description - adjusted spacing and padding */}
-                <div className="lg:hidden mt-6">
-                  <p className="text-xs text-gray-600 tracking-wide leading-relaxed text-center px-2">
-                    This item is carefully crafted by skilled artisans, who devote continuous care to its creation. As a
-                    result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and
-                    other materials are to be expected and celebrated. Each item is unique and possesses its
-                    individuality, ensuring that no two items are exactly alike.
-                  </p>
+               <div className="lg:hidden mt-6">
+  <p className="text-[10px] text-gray-600 leading-relaxed tracking-wide px-2">
+    This item is carefully crafted by skilled artisans, who devote continuous care to its creation. As a
+    result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and
+    other materials are to be expected and celebrated. Each item is unique and possesses its
+    individuality, ensuring that no two items are exactly alike.
+  </p>
+
                 </div>
               </div>
             </div>

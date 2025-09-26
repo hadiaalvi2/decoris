@@ -3,6 +3,7 @@ import { useState } from "react"
 import ShoppingCartOverlay from "./components/ShoppingCartOverlay"
 import WishlistOverlay from "./components/WishlistOverlay"
 import Image from "next/image"
+import { AnimatePresence, motion } from "framer-motion"
 
 type Product = {
   id: string
@@ -449,14 +450,25 @@ export default function Home() {
            <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
   <div className="relative w-full max-w-5xl">
     <div className="px-0 lg:px-0">
-      <Image
-        src={mainImage || "/placeholder.svg"}
-        alt="Black Gold Glass Sculpture"
-        width={1920}
-        height={1080}
-        className="w-full h-auto object-contain"
-        priority
-      />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={mainImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full"
+        >
+          <Image
+            src={mainImage || "/placeholder.svg"}
+            alt="Black Gold Glass Sculpture"
+            width={1920}
+            height={1080}
+            className="w-full h-auto object-contain"
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
     </div>
 
                 {/* Thumbnails */}
@@ -541,9 +553,6 @@ export default function Home() {
     >
       ADD TO CART
     </button>
-  {/* </div>
-</div> */}
-
 
                 {/* Mobile artisan description - adjusted spacing and padding */}
                <div className="lg:hidden mt-6">

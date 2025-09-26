@@ -450,15 +450,15 @@ export default function Home() {
            <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
   <div className="relative w-full max-w-5xl">
     <div className="px-0 lg:px-0">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={mainImage}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.9 }}
-          className="w-full"
-        >
+  <AnimatePresence mode="wait">
+  <motion.div
+    key={mainImage}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.6, ease: "easeInOut" }}
+    className="w-full"
+  >
           <Image
             src={mainImage || "/placeholder.svg"}
             alt="Black Gold Glass Sculpture"

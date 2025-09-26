@@ -241,29 +241,30 @@ export default function Home() {
             </div>
 
             {/* Right side icons - adjusted spacing for mobile */}
-     <div className="flex items-center gap-2 text-purple-700">
-      <Image
-        src="/assets/profile.svg"
-        alt="Profile"
-        width={18}
-        height={20}
-        className="opacity-60 hover:opacity-100 transition-opacity"
-      />
+    <div className="flex items-center gap-2 text-purple-700">
+  <Image
+    src="/assets/profile.svg"
+    alt="Profile"
+    width={20}
+    height={20}
+    className="opacity-60 hover:opacity-100 transition-opacity"
+  />
 
-      <button
-        className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-        onClick={() => setIsWishlistOpen(!isWishlistOpen)}
-      >
-        <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={20} />
-      </button>
+  <button
+    className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+    onClick={() => setIsWishlistOpen(!isWishlistOpen)}
+  >
+    <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={20} />
+  </button>
 
-      <button
-        className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-        onClick={() => setIsCartOpen(!isCartOpen)}
-      >
-        <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
-      </button>
-    </div>
+  <button
+    className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+    onClick={() => setIsCartOpen(!isCartOpen)}
+  >
+    <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
+  </button>
+</div>
+
           </nav>
 
           {/* Mobile Product Title and Actions*/}
@@ -417,7 +418,7 @@ export default function Home() {
 
           {/* Desktop Left Side Icons*/}
           <div className="hidden lg:block absolute top-20 left-2 p-0 z-20 sm:top-24 sm:left-3 md:top-32 md:left-4 lg:top-1/2 lg:-translate-y-1/2 lg:left-12">
-            <h3 className="text-black text-xs font-light mb-4 ml-2 tracking-wider sm:text-sm lg:mb-120">
+            <h3 className="text-black text-xs font-light mb-2 ml-4 mt-5 tracking-wider sm:text-sm lg:mb-120">
               Black Gold Glass Sculpture
             </h3>
             <div className="space-y-3 sm:space-y-4">
@@ -447,7 +448,7 @@ export default function Home() {
             {/* Product Image - adjusted mobile spacing and sizing */}
            <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
   <div className="relative w-full max-w-5xl">
-    <div className="px-0 lg:px-0"> {/* removed side padding */}
+    <div className="px-0 lg:px-0">
       <Image
         src={mainImage || "/placeholder.svg"}
         alt="Black Gold Glass Sculpture"
@@ -494,50 +495,55 @@ export default function Home() {
             </div>
 
             {/* Product Details - adjusted mobile padding and spacing */}
-            <div className="w-full lg:w-2/5 px-6 py-4 lg:px-8 lg:py-8 lg:pr-20 flex flex-col justify-center">
-              <div className="max-w-lg mx-auto w-full text-center lg:text-left">
-                {/* Desktop product title - HIDDEN ON MOBILE */}
-                <div className="hidden lg:block">
-                  {/* <p className="text-xs text-black mb-1 tracking-widest">Black Gold Glass Sculpture</p> */}
-                </div>
-                <p className="text-xs text-black mb-4 tracking-widest">Black Gold Glass Sculpture</p>
+           <div className="w-full lg:w-2/5 px-6 py-4 lg:px-8 lg:py-8 lg:pr-20 flex flex-col justify-center">
+  <div className="max-w-lg mx-auto w-full text-center lg:text-left space-y-4">
+    
+    {/* Product Title */}
+    <p className="text-xs text-black tracking-widest ">Black Gold Glass Sculpture</p>
 
-                <p className="text-xs text-gray-600 mb-4 tracking-widest">78621091</p>
+    {/* Product Code */}
+    <p className="text-xs text-gray-600 tracking-widest">78621091</p>
 
-                <div className="mb-4">
-                  <p className="text-gray-600 leading-relaxed text-[10px] mb-3 tracking-wide">
-                    Upon entering this dazzling estate through the porte-cochere with incredible blends of steel, wood,
-                    and stone, your senses are delighted by the combination of breathtaking panoramic views,
-                    unparalleled privacy, perfect ski access, and the precise sophistication of the construction and
-                    design. Award-Winning Architecture and Interior Design Firm Bridgewater Consulting Group perfected
-                    their consistent philosophy of marrying design and function with a functional flow that perfectly
-                    frames the surrounding landscapes while providing multiple four seasons of outdoor lounges complete
-                    with resort-style amenities...
-                  </p>
-                  <p className="text-[10px] text-gray-600 tracking-wide mt-7">
-                    Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
-                  </p>
-                </div>
+    {/* Description + Specs */}
+    <div className="space-y-3">
+      <p className="text-gray-600 leading-relaxed text-[10px] tracking-wide">
+        Upon entering this dazzling estate through the porte-cochere with incredible blends of steel, wood,
+        and stone, your senses are delighted by the combination of breathtaking panoramic views,
+        unparalleled privacy, perfect ski access, and the precise sophistication of the construction and
+        design. Award-Winning Architecture and Interior Design Firm Bridgewater Consulting Group perfected
+        their consistent philosophy of marrying design and function with a functional flow that perfectly
+        frames the surrounding landscapes while providing multiple four seasons of outdoor lounges complete
+        with resort-style amenities...
+      </p>
+      <p className="text-[10px] text-gray-600 tracking-wide">
+        Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
+      </p>
+    </div>
 
-                <div className="mb-4">
-                  <div className="text-[10px] font-light mb-1 text-gray-800 tracking-wide mt-2">
-                    £1,500.00 
-                  </div>
-                  <p className="text-[10px] text-gray-600 tracking-widest italic mt-2">Including VAT</p>
-                </div>
+    {/* Price + VAT */}
+    <div className="space-y-1">
+      <p className="text-[10px] font-light text-gray-800 tracking-wide">£1,500.00</p>
+      <p className="text-[10px] text-gray-600 tracking-widest italic">Including VAT</p>
+    </div>
 
-                <div className="mb-6">
-                  <p className="text-[10px] italic text-gray-500 mb-3 tracking-wide">
-                    Estimated Delivery Time: 6-8 weeks (on order confirmation)
-                  </p>
-                </div>
+    {/* Delivery */}
+    <p className="text-[10px] italic text-gray-500 tracking-wide">
+      Estimated Delivery Time: 6-8 weeks (on order confirmation)
+    </p>
 
-                <button
-                  className="w-full py-3 px-4 text-xs font-normal tracking-widest uppercase transition-colors lg:text-gray-800 lg:border lg:border-gray-800 lg:bg-transparent lg:hover:bg-[#29003A] lg:hover:text-white bg-[#29003A] text-white border border-[#29003A]"
-                  onClick={() => addToCart(currentProduct)}
-                >
-                  ADD TO CART
-                </button>
+    {/* Add to Cart Button */}
+    <button
+      className="w-full py-3 px-4 text-xs font-normal tracking-widest uppercase transition-colors 
+                 lg:text-gray-800 lg:border lg:border-gray-800 lg:bg-transparent 
+                 lg:hover:bg-[#29003A] lg:hover:text-white 
+                 bg-[#29003A] text-white border border-[#29003A]"
+      onClick={() => addToCart(currentProduct)}
+    >
+      ADD TO CART
+    </button>
+  {/* </div>
+</div> */}
+
 
                 {/* Mobile artisan description - adjusted spacing and padding */}
                <div className="lg:hidden mt-6">

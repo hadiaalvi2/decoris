@@ -99,28 +99,11 @@ export default function Home() {
     },
   ]
 
-  const currentProduct = products[0]
+  // Add state for current product
+  const [currentProduct, setCurrentProduct] = useState(products[0])
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    { id: "1", name: "Gold Glass Sculpture", price: 2325.0, image: "/assets/2.jpg", quantity: 1, sku: "78821113" },
-    {
-      id: "2",
-      name: "Black Gold Glass Sculpture",
-      price: 1500.0,
-      image: "/assets/1.jpg",
-      quantity: 1,
-      sku: "78821091",
-    },
-    {
-      id: "3",
-      name: "Marble White Black Coffee Table",
-      price: 3400.0,
-      image: "/assets/3.jpg",
-      quantity: 1,
-      sku: "78822459",
-    },
-    { id: "4", name: "Black Glass Ornament", price: 1200.0, image: "/assets/1.jpg", quantity: 2, sku: "78822487" },
-  ])
+  // Initialize cart with empty array
+  const [cartItems, setCartItems] = useState<CartItem[]>([])
 
   const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([
     { id: "1", name: "Gold Glass Sculpture", price: 2500.0, image: "/assets/1.jpg", sku: "78821113" },
@@ -199,96 +182,78 @@ export default function Home() {
 
             {/* Mobile logo */}
             <div className="lg:hidden flex justify-center">
-  <Image
-    src="/assets/Decoris P.svg"
-    alt="Decoris Logo"
-    width={110}
-    height={18}
-    className="opacity-100"
-  />
-</div>
-
-
+              <Image
+                src="/assets/Decoris P.svg"
+                alt="Decoris Logo"
+                width={110}
+                height={18}
+                className="opacity-100"
+              />
+            </div>
 
             {/* Desktop navigation menu */}
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-10 text-xs font-medium tracking-widest uppercase">
-              <a href="#" className="text-gray-600 hover:underline">
-                INTERIOR
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                OUTDOOR
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                FURNITURE
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                DECOR
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                LIFESTYLE
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                OTHER
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                ABOUT
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                SHIPPING
-              </a>
-              <a href="#" className="text-gray-600 hover:underline">
-                CONTACT
-              </a>
+              <a href="#" className="text-gray-600 hover:underline">INTERIOR</a>
+              <a href="#" className="text-gray-600 hover:underline">OUTDOOR</a>
+              <a href="#" className="text-gray-600 hover:underline">FURNITURE</a>
+              <a href="#" className="text-gray-600 hover:underline">DECOR</a>
+              <a href="#" className="text-gray-600 hover:underline">LIFESTYLE</a>
+              <a href="#" className="text-gray-600 hover:underline">OTHER</a>
+              <a href="#" className="text-gray-600 hover:underline">ABOUT</a>
+              <a href="#" className="text-gray-600 hover:underline">SHIPPING</a>
+              <a href="#" className="text-gray-600 hover:underline">CONTACT</a>
             </div>
 
-            {/* Right side icons - adjusted spacing for mobile */}
-    <div className="flex items-center gap-2 text-purple-700">
-  <Image
-    src="/assets/profile.svg"
-    alt="Profile"
-    width={20}
-    height={20}
-    className="opacity-60 hover:opacity-100 transition-opacity"
-  />
+            {/* Right side icons - with cart item count */}
+            <div className="flex items-center gap-2 text-purple-700 ml-2">
+              <Image
+                src="/assets/profile.svg"
+                alt="Profile"
+                width={20}
+                height={20}
+                className="opacity-60 hover:opacity-100 transition-opacity mr-1"
+              />
 
-  <button
-    className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-    onClick={() => setIsWishlistOpen(!isWishlistOpen)}
-  >
-    <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={20} />
-  </button>
+              <button
+                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer mr-1"
+                onClick={() => setIsWishlistOpen(!isWishlistOpen)}
+              >
+                <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={20} />
+              </button>
 
-  <button
-    className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-    onClick={() => setIsCartOpen(!isCartOpen)}
-  >
-    <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
-  </button>
-</div>
-
+              <button
+                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer mr-1"
+                onClick={() => setIsCartOpen(!isCartOpen)}
+              >
+                <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-medium">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+            </div>
           </nav>
 
           {/* Mobile Product Title and Actions*/}
-      <div className="lg:hidden flex items-center justify-between px-6 py-0">
-  {/* Product Title */}
-<h3 className="text-black text-[10px] font-normal tracking-wider leading-[0.8rem] -my-5 ml-20 whitespace-nowrap">
-  Black Gold Glass Sculpture
-</h3>
+          <div className="lg:hidden flex items-center justify-between px-6 py-0">
+            {/* Product Title */}
+            <h3 className="text-black text-[10px] font-normal tracking-wider leading-[0.8rem] -my-5 ml-20 whitespace-nowrap">
+              {currentProduct.name}
+            </h3>
 
-
-
-  {/* Icons */}
-  <div className="flex items-center gap-3">
-    <div className="relative w-20 h-20"> 
-      <Image
-        src="/page/Group 51575.svg"
-        alt="Share Icon"
-        fill
-        className="object-contain"
-      />
-    </div>
-  </div>
-</div>
+            {/* Icons */}
+            <div className="flex items-center gap-3">
+              <div className="relative w-20 h-20"> 
+                <Image
+                  src="/page/Group 51575.svg"
+                  alt="Share Icon"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
 
           {/* Mobile Menu Overlay */}
           {isMobileMenuOpen && (
@@ -338,10 +303,7 @@ export default function Home() {
                   >
                     <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
                     {totalItems > 0 && (
-                      <span
-                        className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-xs font-medium leading-none"
-                        style={{ fontSize: "10px" }}
-                      >
+                      <span className="absolute -top-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-medium">
                         {totalItems}
                       </span>
                     )}
@@ -351,60 +313,15 @@ export default function Home() {
 
               <div className="flex-1 px-3 py-4 sm:px-4 sm:py-6">
                 <nav className="space-y-4 sm:space-y-6">
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    INTERIOR
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    OUTDOOR
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    FURNITURE
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    DECOR
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    LIFESTYLE
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    OTHER
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    ABOUT
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    SHIPPING
-                  </a>
-                  <a
-                    href="#"
-                    className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest"
-                  >
-                    CONTACT
-                  </a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">INTERIOR</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OUTDOOR</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">FURNITURE</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">DECOR</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">LIFESTYLE</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">OTHER</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">ABOUT</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">SHIPPING</a>
+                  <a href="#" className="block text-xs sm:text-sm font-normal text-gray-800 hover:text-gray-600 tracking-widest">CONTACT</a>
                 </nav>
               </div>
 
@@ -420,7 +337,7 @@ export default function Home() {
           {/* Desktop Left Side Icons*/}
           <div className="hidden lg:block absolute top-20 left-2 p-0 z-20 sm:top-24 sm:left-3 md:top-32 md:left-4 lg:top-1/2 lg:-translate-y-1/2 lg:left-12">
             <h3 className="text-black text-xs font-light mb-2 ml-4 mt-5 tracking-wider sm:text-sm lg:mb-120">
-              Black Gold Glass Sculpture
+              {currentProduct.name}
             </h3>
             <div className="space-y-3 sm:space-y-4">
               <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:bg-gray-100 rounded-full transition-colors">
@@ -446,53 +363,54 @@ export default function Home() {
 
           {/* Main Content */}
           <div className="flex flex-col lg:flex-row min-h-screen pt-2 lg:pt-8">
-            {/* Product Image - adjusted mobile spacing and sizing */}
-           <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
-  <div className="relative w-full max-w-5xl">
-    <div className="px-0 lg:px-0">
-  <AnimatePresence mode="wait">
-  <motion.div
-    key={mainImage}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.6, ease: "easeInOut" }}
-    className="w-full"
-  >
-          <Image
-            src={mainImage || "/placeholder.svg"}
-            alt="Black Gold Glass Sculpture"
-            width={1920}
-            height={1080}
-            className="w-full h-auto object-contain"
-            priority
-          />
-        </motion.div>
-      </AnimatePresence>
-    </div>
+            {/* Product Image */}
+            <div className="w-full lg:w-3/5 flex items-center justify-center px-0 lg:px-6 py-0 lg:py-8 lg:pt-12 lg:pl-16">
+              <div className="relative w-full max-w-5xl">
+                <div className="px-0 lg:px-0">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={mainImage}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                      className="w-full"
+                    >
+                      <Image
+                        src={mainImage || "/placeholder.svg"}
+                        alt={currentProduct.name}
+                        width={1920}
+                        height={1080}
+                        className="w-full h-auto object-contain"
+                        priority
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
 
                 {/* Thumbnails */}
                 <div className="px-0 lg:px-0 mt-1 lg:mt-1"> 
-  <div className="grid grid-cols-8 gap-1 lg:flex lg:space-x-2 lg:justify-center">
-    {products.map((product) => (
-      <div
-        key={product.id}
-        className="aspect-square cursor-pointer transition-all duration-200 overflow-hidden lg:w-24 lg:h-16 lg:aspect-[4/3] lg:flex-shrink-3"
-        onClick={() => {
-          setMainImage(product.image)
-        }}
-      >
-        <Image
-          src={product.image || "/placeholder.svg"}
-          alt={product.name}
-          width={96}
-          height={64}
-          className="w-full h-full object-cover"
-        />
-      </div>
-    ))}
-  </div>
-</div>
+                  <div className="grid grid-cols-8 gap-1 lg:flex lg:space-x-2 lg:justify-center">
+                    {products.map((product) => (
+                      <div
+                        key={product.id}
+                        className="aspect-square cursor-pointer transition-all duration-200 overflow-hidden lg:w-24 lg:h-16 lg:aspect-[4/3] lg:flex-shrink-3"
+                        onClick={() => {
+                          setMainImage(product.image)
+                          setCurrentProduct(product) // Add this line
+                        }}
+                      >
+                        <Image
+                          src={product.image || "/placeholder.svg"}
+                          alt={product.name}
+                          width={96}
+                          height={64}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 {/*Desktop only */}
                 <div className="hidden lg:block">
@@ -506,64 +424,114 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Product Details - adjusted mobile padding and spacing */}
-           <div className="w-full lg:w-2/5 px-6 py-4 lg:px-8 lg:py-8 lg:pr-20 flex flex-col justify-center">
-  <div className="max-w-lg mx-auto w-full text-center lg:text-left space-y-4">
-    
-    {/* Product Title */}
-    <p className="text-xs text-black tracking-widest ">Black Gold Glass Sculpture</p>
+            {/* Mobile Product Details */}
+            <div className="lg:hidden w-full px-6 py-4 flex flex-col justify-center">
+              <div className="max-w-lg mx-auto w-full text-center space-y-4">
+                
+                {/* Product Title */}
+                <p className="text-xs text-black tracking-widest">{currentProduct.name}</p>
 
-    {/* Product Code */}
-    <p className="text-xs text-gray-600 tracking-widest">78621091</p>
+                {/* Product Code */}
+                <p className="text-xs text-gray-600 tracking-widest">{currentProduct.sku}</p>
 
-    {/* Description + Specs */}
-    <div className="space-y-3">
-      <p className="text-gray-600 leading-relaxed text-[10px] tracking-wide">
-        Upon entering this dazzling estate through the porte-cochere with incredible blends of steel, wood,
-        and stone, your senses are delighted by the combination of breathtaking panoramic views,
-        unparalleled privacy, perfect ski access, and the precise sophistication of the construction and
-        design. Award-Winning Architecture and Interior Design Firm Bridgewater Consulting Group perfected
-        their consistent philosophy of marrying design and function with a functional flow that perfectly
-        frames the surrounding landscapes while providing multiple four seasons of outdoor lounges complete
-        with resort-style amenities...
-      </p>
-      <p className="text-[10px] text-gray-600 tracking-wide">
-        Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
-      </p>
-    </div>
-
-    {/* Price + VAT */}
-    <div className="space-y-1">
-      <p className="text-[10px] font-light text-gray-800 tracking-wide">£1,500.00</p>
-      <p className="text-[10px] text-gray-600 tracking-widest italic">Including VAT</p>
-    </div>
-
-    {/* Delivery */}
-    <p className="text-[10px] italic text-gray-500 tracking-wide">
-      Estimated Delivery Time: 6-8 weeks (on order confirmation)
-    </p>
-
-    {/* Add to Cart Button */}
-    <button
-      className="w-full py-3 px-4 text-xs font-normal tracking-widest uppercase transition-colors 
-                 lg:text-gray-800 lg:border lg:border-gray-800 lg:bg-transparent 
-                 lg:hover:bg-[#29003A] lg:hover:text-white 
-                 bg-[#29003A] text-white border border-[#29003A]"
-      onClick={() => addToCart(currentProduct)}
-    >
-      ADD TO CART
-    </button>
-
-                {/* Mobile artisan description - adjusted spacing and padding */}
-               <div className="lg:hidden mt-6">
-  <p className="text-[10px] text-gray-600 leading-relaxed tracking-wide px-2">
-    This item is carefully crafted by skilled artisans, who devote continuous care to its creation. As a
-    result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and
-    other materials are to be expected and celebrated. Each item is unique and possesses its
-    individuality, ensuring that no two items are exactly alike.
-  </p>
-
+                {/* Description + Specs */}
+                <div className="space-y-3">
+                  <p className="text-gray-600 leading-relaxed text-[10px] tracking-wide">
+                    Upon entering this dazzling estate through the porte-cochere with incredible blends of steel, wood,
+                    and stone, your senses are delighted by the combination of breathtaking panoramic views,
+                    unparalleled privacy, perfect ski access, and the precise sophistication of the construction and
+                    design. Award-Winning Architecture and Interior Design Firm Bridgewater Consulting Group perfected
+                    their consistent philosophy of marrying design and function with a functional flow that perfectly
+                    frames the surrounding landscapes while providing multiple four seasons of outdoor lounges complete
+                    with resort-style amenities...
+                  </p>
+                  <p className="text-[10px] text-gray-600 tracking-wide">
+                    Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
+                  </p>
                 </div>
+
+                {/* Price + VAT */}
+                <div className="space-y-1">
+                  <p className="text-[10px] font-light text-gray-800 tracking-wide">£{currentProduct.price.toFixed(2)}</p>
+                  <p className="text-[10px] text-gray-600 tracking-widest italic">Including VAT</p>
+                </div>
+
+                {/* Delivery */}
+                <p className="text-[10px] italic text-gray-500 tracking-wide">
+                  Estimated Delivery Time: 6-8 weeks (on order confirmation)
+                </p>
+
+                {/* Add to Cart Button */}
+                <button
+                  className="w-full py-3 px-4 text-xs font-normal tracking-widest uppercase transition-colors 
+                             bg-[#29003A] text-white border border-[#29003A]"
+                  onClick={() => addToCart(currentProduct)}
+                >
+                  ADD TO CART
+                </button>
+
+                {/* Mobile artisan description */}
+                <div className="mt-6">
+                  <p className="text-[10px] text-gray-600 leading-relaxed tracking-wide px-2">
+                    This item is carefully crafted by skilled artisans, who devote continuous care to its creation. As a
+                    result of its handmade and hand-finished nature, variations in glass, marble, metal, woodwork, and
+                    or other materials are to be expected and celebrated. Each item is unique and possesses its
+                    individuality, ensuring that no two items are exactly alike.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Product Details*/}
+            <div className="hidden lg:flex w-full lg:w-2/5 px-6 py-4 lg:px-8 lg:py-8 lg:pr-20">
+              <div className="max-w-lg mx-auto w-full">
+                
+                {/* Product Title*/}
+                <p className="text-xs text-black tracking-widest mt-4">{currentProduct.name}</p>
+
+                {/* Product Code */}
+                <p className="text-xs text-gray-600 tracking-widest mt-2">{currentProduct.sku}</p>
+
+                {/* Description + Specs  */}
+                <div className="mb-8">
+                  <p className="text-gray-600 leading-relaxed text-[10px] tracking-wide mb-4 mt-30">
+                    Upon entering this dazzling estate through the porte-cochere with incredible<br />
+                    blends of steel, wood, and stone, your senses are delighted by the combination<br />
+                    of breathtaking panoramic views, unparalleled privacy, perfect ski access, and<br />
+                    the precise sophistication of the construction and design. Award-Winning<br />
+                    Architecture and Interior Design Firm Bridgewater Consulting Group perfected<br />
+                    their consistent philosophy of marrying design and function with a functional<br />
+                    flow that perfectly frames the surrounding landscapes while providing multiple<br />
+                    four seasons of outdoor lounges complete with resort-style amenities...
+                  </p>
+                  <p className="text-[10px] text-gray-600 tracking-wide mt-10">
+                    Glass | 18ct Gold | Black | 6.5kg | H100mm x W400mm x L650mm
+                  </p>
+                </div>
+
+                {/* Price + VAT*/}
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-[10px] font-light text-gray-800 tracking-wide">£{currentProduct.price.toFixed(2)}</p>
+                    <p className="text-[10px] text-gray-600 tracking-widest italic">Including VAT</p>
+                  </div>
+                  <p className="text-[10px] text-gray-600 mt-1">GBP</p>
+                </div>
+
+                {/* Delivery*/}
+                <p className="text-[10px] italic text-gray-500 tracking-wide mb-8">
+                  Estimated Delivery Time: 6-8 weeks (on order confirmation)
+                </p>
+
+                {/* Add to Cart Button*/}
+                <button
+                  className="w-fit px-15 py-2 text-xs font-normal tracking-widest uppercase transition-colors 
+                             border border-[#29003A] text-[#29003A] bg-transparent
+                             hover:bg-[#29003A] hover:text-white"
+                  onClick={() => addToCart(currentProduct)}
+                >
+                  ADD TO CART
+                </button>
               </div>
             </div>
           </div>

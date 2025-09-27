@@ -205,29 +205,29 @@ export default function Home() {
             </div>
 
             {/* Right side icons - with cart item count */}
-            <div className="flex items-center gap-2 text-purple-700 ml-2">
+            <div className="flex items-center gap-1 text-purple-700 ml-2">
               <Image
                 src="/assets/profile.svg"
                 alt="Profile"
                 width={20}
                 height={20}
-                className="opacity-60 hover:opacity-100 transition-opacity mr-1"
+                className="opacity-60 hover:opacity-100 transition-opacity "
               />
 
               <button
-                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer mr-1"
+                className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer "
                 onClick={() => setIsWishlistOpen(!isWishlistOpen)}
               >
                 <Image src="/assets/favourite.svg" alt="Favourites" width={20} height={20} />
               </button>
 
               <button
-                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer mr-1"
+                className="relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
                 onClick={() => setIsCartOpen(!isCartOpen)}
               >
                 <Image src="/assets/BAG.svg" alt="Bag" width={20} height={20} />
                 {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-medium">
+                  <span className="absolute -top-1 -right-1 bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-medium">
                     {totalItems}
                   </span>
                 )}
